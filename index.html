@@ -967,5 +967,450 @@
   <p>10 Days · 5 Cities · 1 Grand Tour &nbsp;·&nbsp; Aug 27 – Sep 6 &nbsp;·&nbsp; Amsterdam Return</p>
 </footer>
 
+<!-- FLOATING BUTTON -->
+<button class="fab" onclick="toggleBooking()" id="fab-btn" title="Open booking tracker">
+  <span id="fab-icon">📋</span>
+  <span id="fab-label">Booking Tracker</span>
+</button>
+
+<!-- BOOKING OVERLAY -->
+<div id="booking-overlay" class="booking-overlay" aria-hidden="true">
+  <div class="booking-panel">
+    <div class="booking-header">
+      <div>
+        <p class="booking-eyebrow">Trip Planner</p>
+        <h2 class="booking-title">Booking Tracker</h2>
+      </div>
+      <button class="close-btn" onclick="toggleBooking()" title="Close">✕</button>
+    </div>
+
+    <div class="booking-scroll">
+      <table class="btable">
+        <thead>
+          <tr>
+            <th class="bc-date">Date &amp; Day</th>
+            <th class="bc-night">Nights</th>
+            <th class="bc-hotel">Hotel</th>
+            <th class="bc-travel">Transport</th>
+            <th class="bc-museum">Tickets / Museum</th>
+            <th class="bc-status">Booked?</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- AMSTERDAM -->
+          <tr class="shdr"><td colspan="6">Amsterdam</td></tr>
+          <tr>
+            <td><span class="ctag a">Amsterdam</span><div class="dl">Aug 27 — Wed</div><div class="ds">Day 1 · Arrival</div></td>
+            <td><span class="nn">2</span><span class="nl">nights</span></td>
+            <td><div class="hn">Hotel near Jordaan / Museumplein</div></td>
+            <td><div class="tm">✈ Arrive AMS 10:20</div><div class="ti">Sprinter: Schiphol → Centraal (~17 min)</div></td>
+            <td><div class="tm">Anne Frank House</div><div class="ti">annefrank.org — sell out weeks ahead</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
+              <label class="ck"><input type="checkbox"><span>Anne Frank</span></label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="ctag a">Amsterdam</span><div class="dl">Aug 28 — Thu</div><div class="ds">Day 2 · Full day</div></td>
+            <td><span class="ds">2nd night</span></td>
+            <td><div class="hn">Same hotel</div></td>
+            <td><div class="tm">No travel</div></td>
+            <td>
+              <div class="tm">Rijksmuseum</div><div class="ti">rijksmuseum.nl</div>
+              <div class="tm" style="margin-top:6px">Van Gogh Museum</div><div class="ti">vangoghmuseum.nl — timed entry required</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Rijksmuseum</span></label>
+              <label class="ck"><input type="checkbox"><span>Van Gogh</span></label>
+            </td>
+          </tr>
+
+          <!-- COLOGNE -->
+          <tr class="shdr"><td colspan="6">Cologne</td></tr>
+          <tr>
+            <td><span class="ctag c">Cologne</span><div class="dl">Aug 29 — Fri</div><div class="ds">Day 3 · Travel day</div></td>
+            <td><span class="nn">1</span><span class="nl">night</span></td>
+            <td><div class="hn">Hotel near Altstadt / Dom</div></td>
+            <td><div class="tm">🚄 AMS → Köln Hbf</div><div class="ti">ICE · ~2 hr 40 min · depart ~08:00</div></td>
+            <td><div class="tm">Cologne Cathedral Tower</div><div class="ti">Pay at door (~€6) — no pre-booking needed</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
+              <label class="ck"><input type="checkbox"><span>Train</span></label>
+            </td>
+          </tr>
+
+          <!-- ZURICH -->
+          <tr class="shdr"><td colspan="6">Zurich</td></tr>
+          <tr>
+            <td><span class="ctag z">Zurich</span><div class="dl">Aug 30 — Sat</div><div class="ds">Day 4 · Travel day</div></td>
+            <td><span class="nn">2</span><span class="nl">nights</span></td>
+            <td><div class="hn">Hotel near Altstadt / lake</div></td>
+            <td><div class="tm">🚄 Köln Hbf → Zürich HB</div><div class="ti">ICE · ~4 hr 30 min · depart ~08:30</div></td>
+            <td><div class="tm">Fraumünster Church</div><div class="ti">Free entry (Chagall windows)</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
+              <label class="ck"><input type="checkbox"><span>Train</span></label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="ctag z">Zurich</span><div class="dl">Aug 31 — Sun</div><div class="ds">Day 5 · Day trip</div></td>
+            <td><span class="ds">2nd night</span></td>
+            <td><div class="hn">Same hotel</div></td>
+            <td><div class="tm">🚄 Zurich → Lucerne (day trip)</div><div class="ti">~50 min each way</div></td>
+            <td><div class="tm">Mt. Pilatus Golden Round Trip</div><div class="ti">pilatus.ch — book online, popular in summer</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Train tickets</span></label>
+              <label class="ck"><input type="checkbox"><span>Mt. Pilatus</span></label>
+            </td>
+          </tr>
+
+          <!-- PARIS -->
+          <tr class="shdr"><td colspan="6">Paris</td></tr>
+          <tr>
+            <td><span class="ctag p">Paris</span><div class="dl">Sep 1 — Mon</div><div class="ds">Day 6 · Travel day</div></td>
+            <td><span class="nn">3</span><span class="nl">nights</span></td>
+            <td><div class="hn">Hotel Left Bank or Marais</div></td>
+            <td><div class="tm">🚄 Zürich HB → Paris Gare de Lyon</div><div class="ti">TGV Lyria · ~4 hr · depart ~08:00</div></td>
+            <td><div class="tm">Eiffel Tower (top floor)</div><div class="ti">toureiffel.paris — book timed slot</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
+              <label class="ck"><input type="checkbox"><span>Train</span></label>
+              <label class="ck"><input type="checkbox"><span>Eiffel Tower</span></label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="ctag p">Paris</span><div class="dl">Sep 2 — Tue</div><div class="ds">Day 7 · Museums</div></td>
+            <td><span class="ds">2nd night</span></td>
+            <td><div class="hn">Same hotel</div></td>
+            <td><div class="tm">No travel</div></td>
+            <td>
+              <div class="tm">The Louvre</div><div class="ti">ticketlouvre.fr — mandatory online booking</div>
+              <div class="tm" style="margin-top:6px">Musée d'Orsay</div><div class="ti">musee-orsay.fr — timed entry recommended</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Louvre</span></label>
+              <label class="ck"><input type="checkbox"><span>Orsay</span></label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="ctag p">Paris</span><div class="dl">Sep 3 — Wed</div><div class="ds">Day 8 · Versailles</div></td>
+            <td><span class="ds">3rd night</span></td>
+            <td><div class="hn">Same hotel</div></td>
+            <td><div class="tm">🚆 Paris → Versailles (RER C)</div><div class="ti">~40 min, €7 round trip</div></td>
+            <td><div class="tm">Palace of Versailles</div><div class="ti">en.chateauversailles.fr — book timed entry</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Versailles</span></label>
+            </td>
+          </tr>
+
+          <!-- BRUSSELS -->
+          <tr class="shdr"><td colspan="6">Brussels</td></tr>
+          <tr>
+            <td><span class="ctag b">Brussels</span><div class="dl">Sep 4 — Thu</div><div class="ds">Day 9 · Travel day</div></td>
+            <td><span class="nn">1</span><span class="nl">night</span></td>
+            <td><div class="hn">Hotel near Grand-Place</div></td>
+            <td><div class="tm">🚄 Paris Gare du Nord → Bruxelles-Midi</div><div class="ti">Thalys · ~1 hr 25 min · depart ~10:00</div></td>
+            <td><div class="tm">Magritte Museum</div><div class="ti">musee-magritte-museum.be — walk-in usually fine</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
+              <label class="ck"><input type="checkbox"><span>Train</span></label>
+            </td>
+          </tr>
+
+          <!-- AMSTERDAM RETURN -->
+          <tr class="shdr"><td colspan="6">Amsterdam (return)</td></tr>
+          <tr>
+            <td><span class="ctag a">Amsterdam</span><div class="dl">Sep 5 — Fri</div><div class="ds">Day 10 · Return</div></td>
+            <td><span class="nn">1</span><span class="nl">night</span></td>
+            <td><div class="hn">Hotel near Schiphol or centre</div></td>
+            <td><div class="tm">🚄 Bruxelles-Midi → Amsterdam Centraal</div><div class="ti">Thalys · ~1 hr 50 min · depart ~12:30</div></td>
+            <td><div class="tm">FOAM Photography Museum</div><div class="ti">foam.org — walk-in usually available</div></td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
+              <label class="ck"><input type="checkbox"><span>Train</span></label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="ctag a">Amsterdam</span><div class="dl">Sep 6 — Sat</div><div class="ds">Departure</div></td>
+            <td>—</td>
+            <td>—</td>
+            <td><div class="tm">✈ Depart AMS 11:00</div><div class="ti">Sprinter: Centraal → Schiphol · be there by 08:30</div></td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div><!-- /booking-scroll -->
+
+    <div class="booking-footer">
+      <span id="progress-text">0 of 22 items booked</span>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* FLOATING BUTTON */
+  .fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 50px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    z-index: 900;
+    box-shadow: 0 4px 24px rgba(26,23,20,0.28);
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .fab:hover { background: #2e2a26; transform: translateY(-2px); }
+  .fab:active { transform: scale(0.97); }
+
+  /* OVERLAY */
+  .booking-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26,23,20,0.55);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+  }
+  .booking-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .booking-panel {
+    background: var(--paper);
+    width: 100%;
+    max-width: 1100px;
+    max-height: 88vh;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(40px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.28, 0.64, 1);
+    overflow: hidden;
+  }
+  .booking-overlay.open .booking-panel {
+    transform: translateY(0);
+  }
+
+  /* PANEL HEADER */
+  .booking-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px 18px;
+    border-bottom: 1px solid var(--light-rule);
+    flex-shrink: 0;
+  }
+  .booking-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .booking-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .close-btn {
+    background: none;
+    border: 1px solid var(--light-rule);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+  }
+  .close-btn:hover { background: var(--cream); }
+
+  /* SCROLLABLE TABLE AREA */
+  .booking-scroll {
+    overflow: auto;
+    flex: 1;
+    padding: 0 32px 16px;
+  }
+
+  /* TABLE */
+  .btable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+    min-width: 860px;
+  }
+  .btable thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 14px 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-rule);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 2;
+  }
+  .bc-date   { width: 14%; }
+  .bc-night  { width: 7%; }
+  .bc-hotel  { width: 18%; }
+  .bc-travel { width: 23%; }
+  .bc-museum { width: 23%; }
+  .bc-status { width: 15%; }
+
+  .btable tbody tr { border-bottom: 1px solid var(--light-rule); }
+  .btable tbody tr:last-child { border-bottom: none; }
+  .btable tbody td { padding: 12px; vertical-align: top; }
+
+  /* SECTION HEADER ROW */
+  .shdr td {
+    background: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 12px;
+  }
+
+  /* CITY BADGE */
+  .ctag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    color: white;
+    margin-bottom: 4px;
+  }
+  .ctag.a { background: var(--ams); }
+  .ctag.c { background: var(--col); }
+  .ctag.z { background: var(--zur); }
+  .ctag.p { background: var(--par); }
+  .ctag.b { background: var(--bru); }
+
+  .dl { font-weight: 600; font-size: 13px; color: var(--ink); }
+  .ds { font-size: 11px; color: var(--muted); }
+  .nn { display: block; font-size: 20px; font-weight: 300; color: var(--ink); line-height: 1.2; }
+  .nl { display: block; font-size: 11px; color: var(--muted); }
+  .hn { font-size: 13px; color: var(--ink); }
+  .tm { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .ti { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+  /* CHECKBOXES */
+  .ck {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  .ck input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .ck span {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+    user-select: none;
+  }
+  .ck input:checked + span {
+    color: var(--zur);
+    text-decoration: line-through;
+    text-decoration-color: var(--zur);
+  }
+
+  /* PROGRESS FOOTER */
+  .booking-footer {
+    flex-shrink: 0;
+    padding: 14px 32px;
+    border-top: 1px solid var(--light-rule);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--cream);
+  }
+  #progress-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .progress-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: var(--light-rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--zur);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+</style>
+
+<script>
+  function toggleBooking() {
+    var overlay = document.getElementById('booking-overlay');
+    var label = document.getElementById('fab-label');
+    var isOpen = overlay.classList.toggle('open');
+    overlay.setAttribute('aria-hidden', !isOpen);
+    label.textContent = isOpen ? 'Close Tracker' : 'Booking Tracker';
+    if (isOpen) updateProgress();
+  }
+
+  document.getElementById('booking-overlay').addEventListener('click', function(e) {
+    if (e.target === this) toggleBooking();
+  });
+
+  function updateProgress() {
+    var all = document.querySelectorAll('.btable input[type="checkbox"]');
+    var checked = document.querySelectorAll('.btable input[type="checkbox"]:checked');
+    var pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
+    document.getElementById('progress-text').textContent = checked.length + ' of ' + all.length + ' items booked';
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  document.querySelectorAll('.btable input[type="checkbox"]').forEach(function(cb) {
+    cb.addEventListener('change', updateProgress);
+  });
+</script>
+
 </body>
 </html>
