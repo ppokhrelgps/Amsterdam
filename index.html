@@ -7,355 +7,98 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1714;
-    --paper: #f5f0e8;
-    --cream: #ede7d9;
-    --accent: #b85c38;
-    --gold: #c9a84c;
-    --muted: #7a7268;
-    --light-rule: #ddd5c4;
-    --ams: #2c5f8a;
-    --col: #5a3e78;
-    --zur: #2e7d5e;
-    --par: #b85c38;
-    --bru: #8a6c2c;
+    --ink: #1a1714; --paper: #f5f0e8; --cream: #ede7d9;
+    --gold: #c9a84c; --muted: #7a7268; --light-rule: #ddd5c4;
+    --ams: #2c5f8a; --col: #5a3e78; --zur: #2e7d5e; --par: #b85c38; --bru: #8a6c2c;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.7;
-  }
-
-  /* HEADER */
-  header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 60px 48px 50px;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,0.015) 40px,
-      rgba(255,255,255,0.015) 41px
-    );
-  }
-  .header-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-  h1 {
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-  .subtitle {
-    font-size: 1rem;
-    color: rgba(245,240,232,0.6);
-    font-family: 'DM Mono', monospace;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-  }
-
-  /* ROUTE STRIP */
-  .route-strip {
-    background: var(--cream);
-    border-bottom: 1px solid var(--light-rule);
-    padding: 20px 48px;
-    overflow-x: auto;
-  }
-  .route-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    white-space: nowrap;
-  }
-  .city-pill {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 2px;
-    color: white;
-  }
-  .city-pill.ams { background: var(--ams); }
-  .city-pill.col { background: var(--col); }
-  .city-pill.zur { background: var(--zur); }
-  .city-pill.par { background: var(--par); }
-  .city-pill.bru { background: var(--bru); }
-
-  .route-arrow {
-    font-size: 13px;
-    color: var(--muted);
-    padding: 0 8px;
-    font-family: 'DM Mono', monospace;
-  }
-  .route-note {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    padding-left: 28px;
-    letter-spacing: 0.06em;
-  }
-
-  /* MAIN */
-  main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 48px 80px;
-  }
-
-  /* DAY CARD */
-  .day {
-    margin-top: 56px;
-    border-top: 2px solid var(--ink);
-    padding-top: 28px;
-    animation: fadeUp 0.5s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .day-header {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-  .day-number {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    min-width: 60px;
-  }
-  .day-title {
-    font-size: 1.75rem;
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    flex: 1;
-  }
-  .day-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
-  .city-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 2px;
-    color: white;
-    align-self: center;
-  }
-  .city-tag.ams { background: var(--ams); }
-  .city-tag.col { background: var(--col); }
-  .city-tag.zur { background: var(--zur); }
-  .city-tag.par { background: var(--par); }
-  .city-tag.bru { background: var(--bru); }
-
-  /* TRANSPORT CARD */
-  .transport {
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: 4px;
-    padding: 16px 22px;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  body { background: var(--paper); color: var(--ink); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.7; }
+  header { background: var(--ink); color: var(--paper); padding: 60px 48px 50px; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px); }
+  .header-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 20px; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .subtitle { font-size: 1rem; color: rgba(245,240,232,0.6); font-family: 'DM Mono', monospace; font-weight: 300; letter-spacing: 0.05em; }
+  .route-strip { background: var(--cream); border-bottom: 1px solid var(--light-rule); padding: 20px 48px; overflow-x: auto; }
+  .route-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; white-space: nowrap; }
+  .city-pill { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; color: white; }
+  .city-pill.ams { background: var(--ams); } .city-pill.col { background: var(--col); } .city-pill.zur { background: var(--zur); } .city-pill.par { background: var(--par); } .city-pill.bru { background: var(--bru); }
+  .route-arrow { font-size: 13px; color: var(--muted); padding: 0 8px; font-family: 'DM Mono', monospace; }
+  .route-note { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); padding-left: 28px; letter-spacing: 0.06em; }
+  main { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
+  .day { margin-top: 56px; border-top: 2px solid var(--ink); padding-top: 28px; animation: fadeUp 0.5s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .day-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+  .day-number { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); min-width: 60px; }
+  .day-title { font-size: 1.75rem; font-weight: 300; letter-spacing: -0.01em; flex: 1; }
+  .day-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+  .city-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; color: white; align-self: center; }
+  .city-tag.ams { background: var(--ams); } .city-tag.col { background: var(--col); } .city-tag.zur { background: var(--zur); } .city-tag.par { background: var(--par); } .city-tag.bru { background: var(--bru); }
+  .alps-badge { display: inline-block; background: var(--zur); color: white; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+  .transport { background: var(--ink); color: var(--paper); border-radius: 4px; padding: 16px 22px; margin-bottom: 28px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .transport-icon { font-size: 1.2rem; }
   .transport-details { flex: 1; }
-  .transport-route {
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-  .transport-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: rgba(245,240,232,0.55);
-    margin-top: 2px;
-    letter-spacing: 0.06em;
-  }
-  .transport-time {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--gold);
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-  }
-
-  /* TIME BLOCKS */
+  .transport-route { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; }
+  .transport-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(245,240,232,0.55); margin-top: 2px; letter-spacing: 0.06em; }
+  .transport-time { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--gold); letter-spacing: 0.06em; white-space: nowrap; }
   .blocks { display: flex; flex-direction: column; gap: 20px; }
-
-  .block {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 0 20px;
-    border-left: 2px solid var(--light-rule);
-    padding-left: 20px;
-    position: relative;
-  }
-  .block::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--paper);
-    border: 2px solid var(--muted);
-  }
-
-  .block-time {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-    padding-top: 3px;
-  }
-  .block-content h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-    letter-spacing: 0.005em;
-  }
-  .block-content p {
-    font-size: 0.95rem;
-    color: #3a3530;
-    margin-bottom: 8px;
-    font-weight: 300;
-  }
-
-  /* ACTIVITY LIST */
-  .activity-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .activity-list li {
-    font-size: 0.9rem;
-    color: #3a3530;
-    font-weight: 300;
-    padding-left: 14px;
-    position: relative;
-  }
-  .activity-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--muted);
-    font-size: 0.8rem;
-  }
-
-  /* FOOD TAG */
-  .food-rec {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--cream);
-    border: 1px solid var(--light-rule);
-    border-radius: 2px;
-    padding: 4px 10px;
-    font-size: 0.82rem;
-    font-family: 'DM Mono', monospace;
-    color: var(--ink);
-    margin-top: 6px;
-    margin-right: 6px;
-    letter-spacing: 0.03em;
-  }
+  .block { display: grid; grid-template-columns: 90px 1fr; gap: 0 20px; border-left: 2px solid var(--light-rule); padding-left: 20px; position: relative; }
+  .block::before { content: ''; position: absolute; left: -5px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); border: 2px solid var(--muted); }
+  .block-time { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; padding-top: 3px; }
+  .block-content h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+  .block-content p { font-size: 0.95rem; color: #3a3530; margin-bottom: 8px; font-weight: 300; }
+  .activity-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .activity-list li { font-size: 0.9rem; color: #3a3530; font-weight: 300; padding-left: 14px; position: relative; }
+  .activity-list li::before { content: '—'; position: absolute; left: 0; color: var(--muted); font-size: 0.8rem; }
+  .food-rec { display: inline-flex; align-items: center; gap: 6px; background: var(--cream); border: 1px solid var(--light-rule); border-radius: 2px; padding: 4px 10px; font-size: 0.82rem; font-family: 'DM Mono', monospace; color: var(--ink); margin-top: 6px; margin-right: 6px; letter-spacing: 0.03em; }
   .food-rec .food-icon { font-size: 0.9rem; }
+  .tip { background: linear-gradient(135deg, #fdf8ef 0%, #f7f0e2 100%); border-left: 3px solid var(--gold); padding: 12px 18px; border-radius: 0 4px 4px 0; margin-top: 20px; }
+  .tip p { font-size: 0.88rem; color: #5a5048; font-style: italic; }
+  .tip strong { font-style: normal; color: var(--ink); font-weight: 600; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--light-rule); }
+  footer { background: var(--ink); color: rgba(245,240,232,0.45); text-align: center; padding: 32px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (max-width: 600px) { header, main, .route-strip { padding-left: 24px; padding-right: 24px; } .block { grid-template-columns: 70px 1fr; } .day-title { font-size: 1.4rem; } }
 
-  /* TIP BOX */
-  .tip {
-    background: linear-gradient(135deg, #fdf8ef 0%, #f7f0e2 100%);
-    border-left: 3px solid var(--gold);
-    padding: 12px 18px;
-    border-radius: 0 4px 4px 0;
-    margin-top: 20px;
-  }
-  .tip p {
-    font-size: 0.88rem;
-    color: #5a5048;
-    font-style: italic;
-  }
-  .tip strong {
-    font-style: normal;
-    color: var(--ink);
-    font-weight: 600;
-  }
+  /* FLOATING BUTTON */
+  .fab { position: fixed; bottom: 32px; right: 32px; background: var(--ink); color: var(--paper); border: none; border-radius: 50px; padding: 14px 22px; display: flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer; z-index: 900; box-shadow: 0 4px 24px rgba(26,23,20,0.28); transition: transform 0.18s ease, background 0.18s ease; }
+  .fab:hover { background: #2e2a26; transform: translateY(-2px); }
 
-  /* SECTION DIVIDER */
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--light-rule);
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--ink);
-    color: rgba(245,240,232,0.45);
-    text-align: center;
-    padding: 32px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  @media (max-width: 600px) {
-    header, main, .route-strip { padding-left: 24px; padding-right: 24px; }
-    .block { grid-template-columns: 70px 1fr; }
-    .day-title { font-size: 1.4rem; }
-  }
+  /* BOOKING OVERLAY */
+  .booking-overlay { position: fixed; inset: 0; background: rgba(26,23,20,0.55); z-index: 1000; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.28s ease; }
+  .booking-overlay.open { opacity: 1; pointer-events: all; }
+  .booking-panel { background: var(--paper); width: 100%; max-width: 1160px; max-height: 88vh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; transform: translateY(40px); transition: transform 0.3s cubic-bezier(0.34, 1.28, 0.64, 1); overflow: hidden; }
+  .booking-overlay.open .booking-panel { transform: translateY(0); }
+  .booking-header { display: flex; align-items: center; justify-content: space-between; padding: 24px 32px 18px; border-bottom: 1px solid var(--light-rule); flex-shrink: 0; }
+  .booking-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .booking-title { font-size: 1.5rem; font-weight: 300; color: var(--ink); }
+  .close-btn { background: none; border: 1px solid var(--light-rule); border-radius: 50%; width: 36px; height: 36px; font-size: 14px; cursor: pointer; color: var(--muted); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+  .close-btn:hover { background: var(--cream); }
+  .booking-scroll { overflow: auto; flex: 1; padding: 0 32px 16px; }
+  .btable { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; min-width: 960px; }
+  .btable thead th { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 14px 12px 10px; text-align: left; border-bottom: 1px solid var(--light-rule); position: sticky; top: 0; background: var(--paper); z-index: 2; }
+  .bc-date { width: 12%; } .bc-night { width: 7%; } .bc-hotel { width: 16%; } .bc-travel { width: 22%; } .bc-museum { width: 25%; } .bc-status { width: 18%; }
+  .btable tbody tr { border-bottom: 1px solid var(--light-rule); }
+  .btable tbody tr:last-child { border-bottom: none; }
+  .btable tbody td { padding: 12px; vertical-align: top; }
+  .shdr td { background: var(--cream); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding: 6px 12px; }
+  .ctag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; color: white; margin-bottom: 4px; }
+  .ctag.a { background: var(--ams); } .ctag.c { background: var(--col); } .ctag.z { background: var(--zur); } .ctag.p { background: var(--par); } .ctag.b { background: var(--bru); }
+  .dl { font-weight: 600; font-size: 13px; color: var(--ink); }
+  .ds { font-size: 11px; color: var(--muted); }
+  .nn { display: block; font-size: 20px; font-weight: 300; color: var(--ink); line-height: 1.2; }
+  .nl { display: block; font-size: 11px; color: var(--muted); }
+  .hn { font-size: 13px; color: var(--ink); }
+  .tm { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .ti { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .ck { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; cursor: pointer; }
+  .ck input[type="checkbox"] { width: 14px; height: 14px; accent-color: var(--par); cursor: pointer; flex-shrink: 0; }
+  .ck span { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.03em; user-select: none; }
+  .ck input:checked + span { color: var(--zur); text-decoration: line-through; text-decoration-color: var(--zur); }
+  .booking-footer { flex-shrink: 0; padding: 14px 32px; border-top: 1px solid var(--light-rule); display: flex; align-items: center; gap: 16px; background: var(--cream); }
+  #progress-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .progress-bar-wrap { flex: 1; height: 4px; background: var(--light-rule); border-radius: 2px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--zur); border-radius: 2px; transition: width 0.3s ease; }
 </style>
 </head>
 <body>
@@ -364,7 +107,7 @@
   <div class="header-inner">
     <p class="eyebrow">10-Day Grand Tour · Aug 27 – Sep 6, 2025</p>
     <h1>Five Cities,<br><em>One Unforgettable</em> Journey</h1>
-    <p class="subtitle">Amsterdam · Cologne · Zurich · Paris · Brussels · Amsterdam</p>
+    <p class="subtitle">Amsterdam · Cologne · Swiss Alps · Paris · Brussels · Amsterdam</p>
   </div>
 </header>
 
@@ -374,7 +117,7 @@
     <span class="route-arrow">→</span>
     <span class="city-pill col">Cologne</span>
     <span class="route-arrow">→</span>
-    <span class="city-pill zur">Zurich</span>
+    <span class="city-pill zur">Swiss Alps</span>
     <span class="route-arrow">→</span>
     <span class="city-pill par">Paris</span>
     <span class="route-arrow">→</span>
@@ -387,11 +130,11 @@
 
 <main>
 
-  <!-- DAY 1 -->
+  <!-- DAY 1 — AMSTERDAM -->
   <section class="day" style="animation-delay:0.05s">
     <div class="day-header">
       <span class="day-number">Day 01</span>
-      <h2 class="day-title">Arrival in Amsterdam</h2>
+      <h2 class="day-title">Amsterdam — The Essential Day</h2>
       <span class="day-date">Wed, Aug 27</span>
       <span class="city-tag ams">Amsterdam</span>
     </div>
@@ -400,323 +143,331 @@
       <div class="block">
         <span class="block-time">Morning<br>10:20</span>
         <div class="block-content">
-          <h3>✈ Land at Amsterdam Schiphol (AMS)</h3>
-          <p>Clear customs, collect luggage. Take the Sprinter or Intercity train from Schiphol Airport directly to Amsterdam Centraal (~17 min, €5.50). Check in to your hotel and freshen up.</p>
+          <h3>✈ Arrive at Schiphol (AMS)</h3>
+          <p>Clear customs, collect bags. Sprinter train to Amsterdam Centraal (~17 min, €5.50). Check in or drop bags at hotel — most allow early luggage drop. Grab a coffee and get moving.</p>
+          <div><span class="food-rec"><span class="food-icon">☕</span>Breakfast: Scandinavian Embassy — the city's best specialty coffee</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>13:00</span>
+        <span class="block-time">Afternoon<br>12:30</span>
         <div class="block-content">
-          <h3>Jordaan & Canal Belt</h3>
+          <h3>Jordaan, Canals & the Big Highlights</h3>
           <ul class="activity-list">
-            <li>Stroll the Jordaan neighbourhood — cobbled lanes, independent boutiques</li>
-            <li>Walk along Prinsengracht and Keizersgracht canals</li>
-            <li>Visit the Anne Frank House (book tickets in advance!)</li>
+            <li>Anne Frank House — book timed entry in advance (annefrank.org), absolutely non-negotiable</li>
+            <li>Prinsengracht & Keizersgracht canal walk — the classic Amsterdam scene</li>
+            <li>Rijksmuseum — Rembrandt, Vermeer, Dutch Golden Age; allow 90 min (pre-book)</li>
+            <li>Albert Cuyp Market in De Pijp — stroopwafels, street food, atmosphere</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🍽</span>Lunch at Moeders (Dutch comfort food)</span>
-          </div>
-        </div>
-      </div>
-      <div class="block">
-        <span class="block-time">Evening<br>18:00</span>
-        <div class="block-content">
-          <h3>Leidseplein & Dinner</h3>
-          <ul class="activity-list">
-            <li>Evening canal cruise for a golden-hour view of the grachten</li>
-            <li>Explore Leidseplein square — lively café terraces</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🍺</span>Brouwerij 't IJ (windmill brewery)</span>
-            <span class="food-rec"><span class="food-icon">🥩</span>De Silveren Spiegel for Dutch cuisine</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tip"><p><strong>Tip:</strong> Buy an OV-chipkaart transit card at Schiphol — reusable for trams, metro, and buses throughout your stay.</p></div>
-  </section>
-
-  <!-- DAY 2 -->
-  <section class="day" style="animation-delay:0.1s">
-    <div class="day-header">
-      <span class="day-number">Day 02</span>
-      <h2 class="day-title">Amsterdam Deep Dive</h2>
-      <span class="day-date">Thu, Aug 28</span>
-      <span class="city-tag ams">Amsterdam</span>
-    </div>
-    <p class="section-label">Schedule</p>
-    <div class="blocks">
-      <div class="block">
-        <span class="block-time">Morning<br>09:00</span>
-        <div class="block-content">
-          <h3>Museumplein</h3>
-          <ul class="activity-list">
-            <li>Rijksmuseum — Rembrandt, Vermeer, and Dutch Golden Age masterworks (allow 2–3 hrs)</li>
-            <li>Van Gogh Museum (book ahead) — the world's largest Van Gogh collection</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">☕</span>Breakfast at Scandinavian Embassy (specialty coffee)</span>
-          </div>
-        </div>
-      </div>
-      <div class="block">
-        <span class="block-time">Afternoon<br>14:00</span>
-        <div class="block-content">
-          <h3>Vondelpark & De Pijp</h3>
-          <ul class="activity-list">
-            <li>Picnic or walk through Vondelpark — Amsterdam's beloved green lung</li>
-            <li>Albert Cuyp Market — largest outdoor market in Europe</li>
-            <li>Heineken Experience (optional, fun brewery tour)</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥙</span>Lunch at Bazar Amsterdam (Middle Eastern)</span>
+            <span class="food-rec"><span class="food-icon">🥩</span>Lunch: Moeders — hearty Dutch comfort food, Jordaan</span>
+            <span class="food-rec"><span class="food-icon">🐟</span>Snack: raw herring at a Haring cart</span>
           </div>
         </div>
       </div>
       <div class="block">
         <span class="block-time">Evening<br>19:00</span>
         <div class="block-content">
-          <h3>Nieuwmarkt & Red Light District</h3>
+          <h3>Canal Cruise & Leidseplein</h3>
           <ul class="activity-list">
-            <li>Wander the historic Nieuwmarkt and De Wallen</li>
-            <li>Visit Oude Kerk — Amsterdam's oldest church amid the nightlife</li>
+            <li>Evening canal cruise — golden-hour light on the grachten is unmissable</li>
+            <li>Leidseplein square — café terraces, street performers, great energy</li>
+            <li>Brouwerij 't IJ — windmill craft brewery, a perfect nightcap</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🐟</span>Raw herring at a street stand (stroopwafel for dessert)</span>
-            <span class="food-rec"><span class="food-icon">🍷</span>Dinner at Bistrot Neuf</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🍽</span>Dinner: De Silveren Spiegel — refined Dutch cuisine in a 1614 canal house</span></div>
         </div>
       </div>
     </div>
+    <div class="tip"><p><strong>Tip:</strong> One focused day is exactly enough. Prioritise Anne Frank House + Rijksmuseum + a canal cruise and you'll leave satisfied. Buy an OV-chipkaart for trams and buses.</p></div>
   </section>
 
-  <!-- DAY 3 — TRAVEL TO COLOGNE -->
-  <section class="day" style="animation-delay:0.15s">
+  <!-- DAY 2 — AMSTERDAM → COLOGNE -->
+  <section class="day" style="animation-delay:0.1s">
     <div class="day-header">
-      <span class="day-number">Day 03</span>
+      <span class="day-number">Day 02</span>
       <h2 class="day-title">Amsterdam → Cologne</h2>
-      <span class="day-date">Fri, Aug 29</span>
+      <span class="day-date">Thu, Aug 28</span>
       <span class="city-tag col">Cologne</span>
     </div>
     <div class="transport">
       <span class="transport-icon">🚄</span>
       <div class="transport-details">
-        <p class="transport-route">Amsterdam Centraal → Köln Hbf</p>
-        <p class="transport-meta">ICE or Thalys high-speed train · Book via NS International or DB</p>
+        <p class="transport-route">Amsterdam Centraal → Köln Hauptbahnhof</p>
+        <p class="transport-meta">ICE high-speed train · Book via NS International or DB · depart ~08:30</p>
       </div>
       <span class="transport-time">~2 hr 40 min</span>
     </div>
     <p class="section-label">Schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>08:00</span>
-        <div class="block-content">
-          <h3>Depart Amsterdam</h3>
-          <p>Board an early ICE train (~08:00–08:30 departure). Enjoy the Rhine countryside as you arrive in Cologne mid-morning. Check in and drop bags.</p>
-        </div>
-      </div>
-      <div class="block">
-        <span class="block-time">Afternoon<br>12:00</span>
-        <div class="block-content">
-          <h3>Cologne Cathedral & Old Town</h3>
-          <ul class="activity-list">
-            <li>Kölner Dom (Cathedral) — climb the South Tower for panoramic Rhine views (533 steps)</li>
-            <li>Roman-Germanic Museum — ancient history right next to the Dom</li>
-            <li>Stroll the Altstadt along the Rhine riverfront promenade</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🍺</span>Kölsch beer at Früh am Dom (traditional Brauhaus)</span>
-            <span class="food-rec"><span class="food-icon">🥨</span>Lunch: Himmel un Ääd (local potato & blood sausage dish)</span>
-          </div>
-        </div>
-      </div>
-      <div class="block">
-        <span class="block-time">Evening<br>18:30</span>
-        <div class="block-content">
-          <h3>Hohenzollern Bridge & Rhine Walk</h3>
-          <ul class="activity-list">
-            <li>Love locks on the Hohenzollern Bridge at sunset</li>
-            <li>Explore the Belgian Quarter (Belgisches Viertel) — indie bars, boutiques</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🍷</span>Dinner at Em Krützche (cozy Rhine-view restaurant)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tip"><p><strong>Tip:</strong> The Cologne Card offers unlimited public transit + museum discounts. Grab one at the main station tourist office.</p></div>
-  </section>
-
-  <!-- DAY 4 — COLOGNE TO ZURICH -->
-  <section class="day" style="animation-delay:0.2s">
-    <div class="day-header">
-      <span class="day-number">Day 04</span>
-      <h2 class="day-title">Cologne → Zurich</h2>
-      <span class="day-date">Sat, Aug 30</span>
-      <span class="city-tag zur">Zurich</span>
-    </div>
-    <div class="transport">
-      <span class="transport-icon">🚄</span>
-      <div class="transport-details">
-        <p class="transport-route">Köln Hbf → Zürich HB</p>
-        <p class="transport-meta">ICE direct via Frankfurt or with one change · Book via DB (Deutsche Bahn)</p>
-      </div>
-      <span class="transport-time">~4 hr 30 min</span>
-    </div>
-    <p class="section-label">Schedule</p>
-    <div class="blocks">
-      <div class="block">
         <span class="block-time">Morning<br>08:30</span>
         <div class="block-content">
-          <h3>Depart Cologne</h3>
-          <p>Board the morning train. The route passes through the Rhine Valley — grab a window seat. Arrive in Zurich ~13:00. Check in and get oriented on the lakefront.</p>
+          <h3>Depart Amsterdam, Arrive Cologne ~11:10</h3>
+          <p>The Cathedral is literally outside the station exit — you'll see it before you're even through the doors. Drop bags at hotel and walk straight there.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>14:00</span>
+        <span class="block-time">Afternoon<br>11:30</span>
         <div class="block-content">
-          <h3>Zurich Old Town (Altstadt)</h3>
+          <h3>Kölner Dom & Altstadt</h3>
           <ul class="activity-list">
-            <li>Grossmünster and Fraumünster churches — Chagall windows in Fraumünster</li>
-            <li>Bahnhofstrasse luxury shopping strip (window shop or splurge)</li>
-            <li>Lindenhügel hill — free panoramic views of the city and Alps</li>
+            <li>Kölner Dom — climb the South Tower (533 steps) for Rhine panoramas</li>
+            <li>Roman-Germanic Museum — ancient mosaics and Roman Cologne</li>
+            <li>Hohenzollern Bridge — love locks and great river views</li>
+            <li>Rhine promenade walk toward the Old Town</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🧀</span>Fondue lunch at Raclette Factory</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🍺</span>Lunch: Früh am Dom — order Kölsch in traditional 0.2L Stange glasses</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>18:30</span>
+        <span class="block-time">Afternoon<br>15:30</span>
         <div class="block-content">
-          <h3>Lake Zurich Promenade</h3>
+          <h3>Museum Ludwig & Belgian Quarter</h3>
           <ul class="activity-list">
-            <li>Sunset stroll along Zürichsee — locals swim in summer, join them!</li>
-            <li>Explore Langstrasse district — vibrant nightlife, street art</li>
+            <li>Museum Ludwig — excellent modern art: Picasso, Warhol, German Expressionism</li>
+            <li>Belgisches Viertel — indie boutiques, street art, lively café culture</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🍽</span>Dinner at Kronenhalle (classic Zurich brasserie, Picasso on the walls)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DAY 5 — ZURICH -->
-  <section class="day" style="animation-delay:0.25s">
-    <div class="day-header">
-      <span class="day-number">Day 05</span>
-      <h2 class="day-title">Swiss Alps Day Trip</h2>
-      <span class="day-date">Sun, Aug 31</span>
-      <span class="city-tag zur">Zurich</span>
-    </div>
-    <p class="section-label">Schedule</p>
-    <div class="blocks">
-      <div class="block">
-        <span class="block-time">Morning<br>07:30</span>
-        <div class="block-content">
-          <h3>Day Trip to Lucerne & Mount Pilatus</h3>
-          <ul class="activity-list">
-            <li>Train from Zurich HB to Lucerne (~50 min, every 30 min)</li>
-            <li>Chapel Bridge (Kapellbrücke) — world's oldest covered wooden bridge</li>
-            <li>Lake Lucerne boat cruise or scenic walk along the waterfront</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">☕</span>Breakfast on the train or at Lucerne station</span>
-          </div>
-        </div>
-      </div>
-      <div class="block">
-        <span class="block-time">Afternoon<br>13:00</span>
-        <div class="block-content">
-          <h3>Mount Pilatus (Optional)</h3>
-          <ul class="activity-list">
-            <li>Cog railway up to Pilatus Kulm (2,132m) — world's steepest rack railway</li>
-            <li>Panoramic views of the Alps and 73 mountain peaks on clear days</li>
-            <li>Return via gondola and bus — "Golden Round Trip" route</li>
-          </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🍫</span>Swiss chocolate tasting at Hotel Pilatus-Kulm</span>
-          </div>
         </div>
       </div>
       <div class="block">
         <span class="block-time">Evening<br>19:00</span>
         <div class="block-content">
-          <h3>Return to Zurich, Rest Evening</h3>
-          <p>Return train to Zurich. Easy evening — recover and pack for Paris tomorrow.</p>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥩</span>Zürcher Geschnetzeltes (veal in cream) at Zeughauskeller</span>
-          </div>
+          <h3>Rhine Sunset & Dinner</h3>
+          <ul class="activity-list">
+            <li>Hohenzollern Bridge at dusk — beautiful light on the water</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🥩</span>Dinner: Em Krützche — Rhine-view restaurant, try Himmel un Ääd (potato & blood sausage)</span></div>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> The Swiss Travel Pass covers trains, boats, buses, and most mountain railways. Check if it's worth it vs point-to-point tickets for your route.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> The Cologne Card gives unlimited transit + museum discounts. Grab one at the station tourist office on arrival.</p></div>
   </section>
 
-  <!-- DAY 6 — ZURICH TO PARIS -->
+  <!-- DAY 3 — COLOGNE → INTERLAKEN -->
+  <section class="day" style="animation-delay:0.15s">
+    <div class="day-header">
+      <span class="day-number">Day 03</span>
+      <h2 class="day-title">Cologne → Interlaken <span class="alps-badge">Alps Base</span></h2>
+      <span class="day-date">Fri, Aug 29</span>
+      <span class="city-tag zur">Swiss Alps</span>
+    </div>
+    <div class="transport">
+      <span class="transport-icon">🚄</span>
+      <div class="transport-details">
+        <p class="transport-route">Köln Hbf → Basel → Interlaken Ost</p>
+        <p class="transport-meta">ICE to Basel, then SBB InterCity through the Bernese Oberland · Book via DB + sbb.ch · depart ~08:00</p>
+      </div>
+      <span class="transport-time">~5 hr 30 min</span>
+    </div>
+    <p class="section-label">Schedule</p>
+    <div class="blocks">
+      <div class="block">
+        <span class="block-time">Morning<br>08:00</span>
+        <div class="block-content">
+          <h3>Depart Cologne</h3>
+          <p>The leg from Basel onward is one of Europe's most scenic train rides — you enter the Bernese Oberland and the Alps unfold around you. Arrive Interlaken Ost ~13:30. Interlaken is your mountain base for three nights.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Afternoon<br>14:00</span>
+        <div class="block-content">
+          <h3>Interlaken & Lake Thun</h3>
+          <ul class="activity-list">
+            <li>Höheweg promenade — the famous strip between Lakes Thun and Brienz with the Eiger, Mönch and Jungfrau directly ahead</li>
+            <li>Boat cruise on Lake Thun — glassy water, Alpine reflections, castle silhouettes</li>
+            <li>Spiez village (optional short stop) — beautiful lakeside castle</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🧀</span>Lunch: Käseschnitte (Swiss cheese toast) at a lakeside café</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Evening<br>19:00</span>
+        <div class="block-content">
+          <h3>Settle In — Plan the Alps Days</h3>
+          <p>Easy first evening. Check the Jungfraujoch webcam (jungfrau.ch), review tomorrow's route, set an early alarm, and rest. The mountains demand early starts.</p>
+          <div><span class="food-rec"><span class="food-icon">🍷</span>Dinner: Restaurant Schuh — elegant terrace overlooking the Höheweg</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><p><strong>Tip:</strong> The Jungfrau Travel Pass covers regional trains, boats and cable cars across the region — compare it against point-to-point tickets for your specific days, as it can save a substantial amount.</p></div>
+  </section>
+
+  <!-- DAY 4 — JUNGFRAUJOCH -->
+  <section class="day" style="animation-delay:0.2s">
+    <div class="day-header">
+      <span class="day-number">Day 04</span>
+      <h2 class="day-title">Jungfraujoch — Top of Europe <span class="alps-badge">3,454 m</span></h2>
+      <span class="day-date">Sat, Aug 30</span>
+      <span class="city-tag zur">Swiss Alps</span>
+    </div>
+    <p class="section-label">Schedule</p>
+    <div class="blocks">
+      <div class="block">
+        <span class="block-time">Morning<br>07:00</span>
+        <div class="block-content">
+          <h3>Early Departure — First Trains Are Best</h3>
+          <p>Train from Interlaken Ost → Grindelwald or Lauterbrunnen → Kleine Scheidegg → Jungfraujoch. The rack railway through the Eiger tunnel is an experience on its own. Allow 2.5 hours each way.</p>
+          <ul class="activity-list">
+            <li>Target the ~07:35 departure — best visibility, fewest crowds, best light</li>
+            <li>Book at jungfrau.ch in advance — CHF 145–215 depending on season and pass</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">☕</span>Breakfast on the train or at Kleine Scheidegg station</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Late Morn<br>10:00</span>
+        <div class="block-content">
+          <h3>At the Summit (3,454 m)</h3>
+          <ul class="activity-list">
+            <li>Sphinx Observatory — 360° panorama over the Aletsch Glacier, the longest glacier in the Alps</li>
+            <li>Snow Fun Park — sledging and snowball fights in August, extraordinary novelty</li>
+            <li>Ice Palace — carved glacier tunnels with ice sculptures</li>
+            <li>Plateau Trail — walking path along the snow with views of peaks and ice in all directions</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🍜</span>Lunch: Crystal Restaurant at the top — pricey but the setting is extraordinary</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Afternoon<br>14:00</span>
+        <div class="block-content">
+          <h3>Descent via Grindelwald</h3>
+          <ul class="activity-list">
+            <li>Return via Grindelwald — gorgeous village directly under the Eiger north face</li>
+            <li>Stroll the village, pick up local cheese, browse the shops</li>
+            <li>Grindelwald First cable car (optional, extra fee) — clifftop walks and mountain cart rides</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Evening<br>19:30</span>
+        <div class="block-content">
+          <h3>Return to Interlaken</h3>
+          <p>Back in town by evening. Rest well — Schilthorn tomorrow is another big day.</p>
+          <div><span class="food-rec"><span class="food-icon">🥩</span>Dinner: Laterne Restaurant — warm, unpretentious Swiss mountain food</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><p><strong>Tip:</strong> Check the Jungfraujoch live webcam the morning you go. If the summit is socked in with cloud, swap Day 4 and Day 5 — Schilthorn at a lower elevation often has better visibility on overcast days.</p></div>
+  </section>
+
+  <!-- DAY 5 — SCHILTHORN + LAUTERBRUNNEN -->
+  <section class="day" style="animation-delay:0.25s">
+    <div class="day-header">
+      <span class="day-number">Day 05</span>
+      <h2 class="day-title">Schilthorn & Lauterbrunnen Valley <span class="alps-badge">2,970 m</span></h2>
+      <span class="day-date">Sun, Aug 31</span>
+      <span class="city-tag zur">Swiss Alps</span>
+    </div>
+    <p class="section-label">Schedule</p>
+    <div class="blocks">
+      <div class="block">
+        <span class="block-time">Morning<br>08:00</span>
+        <div class="block-content">
+          <h3>Lauterbrunnen Valley</h3>
+          <ul class="activity-list">
+            <li>Train from Interlaken Ost to Lauterbrunnen (~20 min)</li>
+            <li>Staubbach Falls — 300 m waterfall plunging straight off the cliff into the valley, free and breathtaking</li>
+            <li>Trümmelbach Falls — glacial meltwater carving through the mountain interior (CHF ~14 at the door)</li>
+            <li>Walk the valley floor trail between waterfalls — the valley has 72 of them</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🥐</span>Breakfast: Airtime Café, Lauterbrunnen — great views, good coffee</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Midday<br>11:30</span>
+        <div class="block-content">
+          <h3>Schilthorn — Piz Gloria (2,970 m)</h3>
+          <ul class="activity-list">
+            <li>Cable car from Stechelberg via Gimmelwald and Mürren to the summit</li>
+            <li>Piz Gloria revolving restaurant — filming location for the 1969 James Bond film On Her Majesty's Secret Service</li>
+            <li>Panorama: Eiger, Mönch, Jungfrau, and on clear days all the way to Mont Blanc and the Black Forest</li>
+            <li>James Bond World exhibition — fun interactive displays about the filming</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🍽</span>Lunch: Piz Gloria rotating restaurant — one slow revolution while you eat</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Afternoon<br>15:00</span>
+        <div class="block-content">
+          <h3>Mürren — Car-Free Clifftop Village</h3>
+          <ul class="activity-list">
+            <li>Stop at Mürren on the descent — one of Switzerland's most beautiful villages, clinging to a cliff at 1,650 m, no cars ever</li>
+            <li>Northface Trail — a 4 km walk with the Eiger's legendary north face filling the entire skyline</li>
+            <li>Sit on a bench, breathe the mountain air — this is the Switzerland you came for</li>
+            <li>Optional: walk from Mürren down to Gimmelwald (30 min, one of Europe's great short hikes)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">Evening<br>19:00</span>
+        <div class="block-content">
+          <h3>Final Alps Evening in Interlaken</h3>
+          <p>Return to Interlaken. Pack for Paris tomorrow. If skies are clear, sit outside — watch the Eiger and Jungfrau turn pink at alpenglow. It's a moment you'll remember.</p>
+          <div><span class="food-rec"><span class="food-icon">🫕</span>Farewell fondue: Restaurant Tälli, Interlaken — end on a classic</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><p><strong>Tip:</strong> August is peak paragliding season in Interlaken — if that's on your bucket list, operators in Lauterbrunnen can arrange tandem jumps with landing in the Interlaken valley. Unforgettable views on the way down.</p></div>
+  </section>
+
+  <!-- DAY 6 — INTERLAKEN → PARIS -->
   <section class="day" style="animation-delay:0.3s">
     <div class="day-header">
       <span class="day-number">Day 06</span>
-      <h2 class="day-title">Zurich → Paris</h2>
+      <h2 class="day-title">Interlaken → Paris</h2>
       <span class="day-date">Mon, Sep 1</span>
       <span class="city-tag par">Paris</span>
     </div>
     <div class="transport">
       <span class="transport-icon">🚄</span>
       <div class="transport-details">
-        <p class="transport-route">Zürich HB → Paris Gare de Lyon</p>
-        <p class="transport-meta">TGV Lyria high-speed train · Book via SNCF Connect or Rail Europe</p>
+        <p class="transport-route">Interlaken Ost → Bern → Paris Gare de Lyon</p>
+        <p class="transport-meta">SBB IC to Bern, then TGV Lyria · Book via sbb.ch + SNCF Connect · depart ~08:00</p>
       </div>
-      <span class="transport-time">~4 hr</span>
+      <span class="transport-time">~5 hr 30 min</span>
     </div>
     <p class="section-label">Schedule</p>
     <div class="blocks">
       <div class="block">
         <span class="block-time">Morning<br>08:00</span>
         <div class="block-content">
-          <h3>Depart Zurich</h3>
-          <p>TGV Lyria is scenic through the Jura mountains and Burgundy. Arrive Paris Gare de Lyon ~12:00. Take RER D or taxi to your hotel. Check in and freshen up.</p>
+          <h3>Depart Interlaken</h3>
+          <p>Train to Bern (~50 min), connect to TGV Lyria through the Jura to Paris Gare de Lyon. Arrive ~13:30. Check in, freshen up.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>14:00</span>
+        <span class="block-time">Afternoon<br>14:30</span>
         <div class="block-content">
-          <h3>Left Bank & Latin Quarter</h3>
+          <h3>Left Bank First Impressions</h3>
           <ul class="activity-list">
-            <li>Notre-Dame de Paris — exterior reconstruction ongoing, worth seeing</li>
-            <li>Île Saint-Louis — charming island, Berthillon ice cream</li>
-            <li>Luxembourg Gardens — peaceful afternoon stroll</li>
-            <li>Panthéon exterior (short detour if interested)</li>
+            <li>Notre-Dame de Paris — reconstruction ongoing, still striking to see in person</li>
+            <li>Île Saint-Louis — charming island, Berthillon ice cream (legendary)</li>
+            <li>Luxembourg Gardens — peaceful stroll, pull up a metal chair by the fountain</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥐</span>Croissant & café crème at a Left Bank café terrace</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🥐</span>Café crème and a croissant at a Left Bank terrace — your Paris welcome</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:00</span>
+        <span class="block-time">Evening<br>19:30</span>
         <div class="block-content">
           <h3>Eiffel Tower at Dusk</h3>
           <ul class="activity-list">
-            <li>Trocadéro terrace for the classic Eiffel Tower photo at golden hour</li>
-            <li>Champ de Mars park picnic or restaurant</li>
-            <li>Eiffel Tower light show at 22:00 (every hour, top of the hour)</li>
+            <li>Trocadéro terrace — the classic Eiffel Tower view at golden hour</li>
+            <li>Champ de Mars for the 22:00 light show (sparkles on the hour after dark)</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🍷</span>Dinner at Le Jules Verne (inside the Tower — book well ahead)</span>
-            <span class="food-rec"><span class="food-icon">🥖</span>Budget option: Au Pied de Fouet (classic bistro)</span>
+            <span class="food-rec"><span class="food-icon">🍷</span>Dinner: Au Pied de Fouet — tiny classic Parisian bistro, honest prices</span>
+            <span class="food-rec"><span class="food-icon">🦞</span>Splurge: Le Jules Verne inside the Tower — book far ahead</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DAY 7 — PARIS -->
+  <!-- DAY 7 — PARIS MUSEUMS -->
   <section class="day" style="animation-delay:0.35s">
     <div class="day-header">
       <span class="day-number">Day 07</span>
-      <h2 class="day-title">Paris: Grands Musées</h2>
+      <h2 class="day-title">Paris — Grands Musées & Montmartre</h2>
       <span class="day-date">Tue, Sep 2</span>
       <span class="city-tag par">Paris</span>
     </div>
@@ -727,49 +478,42 @@
         <div class="block-content">
           <h3>The Louvre</h3>
           <ul class="activity-list">
-            <li>Mona Lisa, Venus de Milo, Winged Victory — allow 3 hours minimum</li>
-            <li>Book skip-the-line tickets online (mandatory)</li>
-            <li>Cour Napoléon glass pyramid — iconic architecture</li>
+            <li>Mona Lisa, Venus de Milo, Winged Victory — allow at least 2–3 hours</li>
+            <li>Book at ticketlouvre.fr — mandatory, no walk-up tickets in peak season</li>
+            <li>Cour Napoléon glass pyramid for photos before going in</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">☕</span>Early breakfast at Café Marly overlooking the pyramid</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">☕</span>Breakfast: Café Marly — terrace looking directly at the pyramid</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>14:00</span>
+        <span class="block-time">Afternoon<br>13:30</span>
         <div class="block-content">
           <h3>Musée d'Orsay & Saint-Germain</h3>
           <ul class="activity-list">
-            <li>Musée d'Orsay — Monet, Renoir, Degas in a converted railway station</li>
-            <li>Stroll Saint-Germain-des-Prés — literary cafés, Sartre and Simone de Beauvoir haunts</li>
-            <li>Browse Marché aux Puces if energy allows</li>
+            <li>Musée d'Orsay — Monet, Renoir, Degas in a spectacular converted railway station</li>
+            <li>Saint-Germain-des-Prés stroll — Sartre and de Beauvoir's old neighbourhood</li>
+            <li>Rue de Buci market — cheese, charcuterie, wine for a spontaneous picnic</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥗</span>Lunch at Café de Flore or Les Deux Magots</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🥗</span>Lunch: Café de Flore or Les Deux Magots — order slowly, watch the world go by</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:30</span>
+        <span class="block-time">Evening<br>18:30</span>
         <div class="block-content">
-          <h3>Montmartre</h3>
+          <h3>Montmartre by Night</h3>
           <ul class="activity-list">
-            <li>Sacré-Cœur Basilica — panoramic view of Paris at dusk</li>
-            <li>Place du Tertre — artists at work under lamplight</li>
-            <li>Le Moulin Rouge exterior (quintessentially Parisian)</li>
+            <li>Sacré-Cœur Basilica — panoramic Paris at dusk from the steps</li>
+            <li>Place du Tertre — artists painting under warm lamplight</li>
+            <li>Le Moulin Rouge exterior — quintessentially Parisian street scene</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🧅</span>French onion soup at La Bonne Franquette</span>
-            <span class="food-rec"><span class="food-icon">🍮</span>Crème brûlée to finish</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🧅</span>Dinner: La Bonne Franquette — French onion soup in a Montmartre institution</span></div>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> The Paris Museum Pass (2 or 4 days) covers the Louvre, Orsay, Versailles, and 50+ sites — excellent value if you're museum-hopping.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> The Paris Museum Pass (2 or 4 days) covers the Louvre, Orsay, Versailles, and 50+ sites — great value if you're doing multiple museum days.</p></div>
   </section>
 
-  <!-- DAY 8 — PARIS -->
+  <!-- DAY 8 — VERSAILLES + MARAIS -->
   <section class="day" style="animation-delay:0.4s">
     <div class="day-header">
       <span class="day-number">Day 08</span>
@@ -784,14 +528,12 @@
         <div class="block-content">
           <h3>Palace of Versailles Day Trip</h3>
           <ul class="activity-list">
-            <li>RER C train from Paris (~40 min, €7 round trip)</li>
-            <li>Hall of Mirrors, Royal Apartments, King's Private Apartments</li>
-            <li>Gardens of Versailles — fountains, topiaries, Grand Canal</li>
-            <li>Arrive early — 09:00 opening — to beat the crowds</li>
+            <li>RER C from Pont de l'Alma → Versailles Rive Gauche (~40 min, ~€7 return)</li>
+            <li>Hall of Mirrors, Grand Apartments, King's Private Apartments</li>
+            <li>Gardens — Le Nôtre's geometric masterwork; Grand Canal boat ride (optional)</li>
+            <li>Arrive at 09:00 opening to beat the tour groups</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥐</span>Pack pastries for the gardens — overpriced food on site</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🥐</span>Pack pastries from your hotel — eat in the gardens, far cheaper and more enjoyable</span></div>
         </div>
       </div>
       <div class="block">
@@ -799,14 +541,12 @@
         <div class="block-content">
           <h3>Le Marais</h3>
           <ul class="activity-list">
-            <li>Place des Vosges — Paris's oldest planned square, lined with arcades</li>
-            <li>Musée Picasso (optional)</li>
-            <li>Rue des Rosiers — Jewish Quarter, falafel and history</li>
-            <li>Vintage shopping on Rue de Bretagne</li>
+            <li>Place des Vosges — Paris's oldest royal square with beautiful arcades</li>
+            <li>Musée Picasso (optional — excellent collection if you love his work)</li>
+            <li>Rue des Rosiers — Jewish Quarter, legendary falafel</li>
+            <li>Marché des Enfants Rouges — Paris's oldest covered market (1615)</li>
           </ul>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥙</span>Falafel at L'As du Fallafel (legendary, always a queue)</span>
-          </div>
+          <div><span class="food-rec"><span class="food-icon">🥙</span>Falafel: L'As du Fallafel on Rue des Rosiers — always queued, always worth it</span></div>
         </div>
       </div>
       <div class="block">
@@ -814,19 +554,19 @@
         <div class="block-content">
           <h3>Seine Cruise & Last Paris Night</h3>
           <ul class="activity-list">
-            <li>Bateaux Mouches or Vedettes du Pont-Neuf evening cruise</li>
-            <li>Final Paris dinner — treat yourself</li>
+            <li>Vedettes du Pont-Neuf evening cruise — city lit up at night is magical</li>
+            <li>Final Paris dinner</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🦞</span>Bouillon Chartier — classic Art Nouveau brasserie at great prices</span>
-            <span class="food-rec"><span class="food-icon">🍾</span>Champagne at Bar Hemingway, Ritz Paris (a splurge worth making)</span>
+            <span class="food-rec"><span class="food-icon">🥂</span>Bouillon Chartier — Art Nouveau brasserie, wonderful food at bistro prices</span>
+            <span class="food-rec"><span class="food-icon">🍾</span>Nightcap: Bar Hemingway at the Ritz — a splurge absolutely worth making once</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DAY 9 — PARIS TO BRUSSELS -->
+  <!-- DAY 9 — PARIS → BRUSSELS -->
   <section class="day" style="animation-delay:0.45s">
     <div class="day-header">
       <span class="day-number">Day 09</span>
@@ -838,7 +578,7 @@
       <span class="transport-icon">🚄</span>
       <div class="transport-details">
         <p class="transport-route">Paris Gare du Nord → Bruxelles-Midi</p>
-        <p class="transport-meta">Thalys or Eurostar high-speed train · Book via Thalys or Rail Europe</p>
+        <p class="transport-meta">Thalys high-speed · Book via thalys.com or Rail Europe · depart ~10:00</p>
       </div>
       <span class="transport-time">~1 hr 25 min</span>
     </div>
@@ -847,49 +587,46 @@
       <div class="block">
         <span class="block-time">Morning<br>10:00</span>
         <div class="block-content">
-          <h3>Relaxed Departure from Paris</h3>
-          <p>Take a mid-morning Thalys. Arrive Brussels by noon. This is one of Europe's fastest rail connections — leave Paris late, arrive early. Check in near Grand-Place.</p>
-          <div>
-            <span class="food-rec"><span class="food-icon">🥐</span>Grab a final Parisian croissant before boarding</span>
-          </div>
+          <h3>Relaxed Paris Departure</h3>
+          <p>Final croissant, board the Thalys. Arrive Brussels Midi by ~12:00. Drop bags and walk 10 minutes to Grand-Place — start immediately.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>13:00</span>
+        <span class="block-time">Afternoon<br>12:30</span>
         <div class="block-content">
           <h3>Grand-Place & Historic Centre</h3>
           <ul class="activity-list">
-            <li>Grand-Place — one of Europe's most beautiful main squares (UNESCO)</li>
-            <li>Manneken Pis — surprisingly tiny, surprisingly beloved</li>
-            <li>Galeries Royales Saint-Hubert — 19th-century covered arcade</li>
-            <li>Magritte Museum (dedicated to the Belgian surrealist)</li>
+            <li>Grand-Place — one of Europe's truly great public squares, UNESCO listed; stop and stare</li>
+            <li>Manneken Pis — tiny, beloved, always in a themed costume</li>
+            <li>Galeries Royales Saint-Hubert — ornate 19th-century covered arcade</li>
+            <li>Magritte Museum — dedicated to Belgium's great surrealist painter</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🍟</span>Moules-frites at Aux Armes de Bruxelles</span>
-            <span class="food-rec"><span class="food-icon">🍫</span>Neuhaus or Pierre Marcolini for world-class Belgian chocolate</span>
+            <span class="food-rec"><span class="food-icon">🍟</span>Lunch: Moules-frites at Aux Armes de Bruxelles — the definitive Belgian meal</span>
+            <span class="food-rec"><span class="food-icon">🍫</span>Chocolate: Neuhaus or Pierre Marcolini — world-class Belgian pralines</span>
           </div>
         </div>
       </div>
       <div class="block">
         <span class="block-time">Evening<br>18:30</span>
         <div class="block-content">
-          <h3>Ixelles & Sablon</h3>
+          <h3>Sablon & Belgian Ales</h3>
           <ul class="activity-list">
-            <li>Place du Grand Sablon — antique dealers, upscale chocolatiers</li>
-            <li>Église Notre-Dame du Sablon (beautiful Gothic church)</li>
-            <li>Ixelles neighbourhood — vibrant student bars and EU district buzz</li>
+            <li>Place du Grand Sablon — antiques, chocolatiers, lovely tree-lined square</li>
+            <li>Église Notre-Dame du Sablon — stunning Gothic interior, free entry</li>
+            <li>Ixelles neighbourhood for a local, vibrant evening</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🍺</span>Belgian ales at Delirium Café (2,000+ beers on menu)</span>
-            <span class="food-rec"><span class="food-icon">🦐</span>Grey shrimp croquettes — the ultimate Belgian starter</span>
+            <span class="food-rec"><span class="food-icon">🍺</span>Delirium Café — 2,000+ beers, required stop</span>
+            <span class="food-rec"><span class="food-icon">🦐</span>Grey shrimp croquettes — the definitive Belgian starter</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> Brussels is underrated — hotel prices are lower than Paris, food is excellent, and the waffle vs. gaufre debate is very real. Get both.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> Get a Liège waffle (dense, caramelised pearl sugar) from a street stand — not the flat Brussels kind sold to tourists. It's one of the best things you'll eat on this entire trip.</p></div>
   </section>
 
-  <!-- DAY 10 — BRUSSELS TO AMSTERDAM -->
+  <!-- DAY 10 — BRUSSELS → AMSTERDAM + DEPARTURE -->
   <section class="day" style="animation-delay:0.5s">
     <div class="day-header">
       <span class="day-number">Day 10</span>
@@ -901,7 +638,7 @@
       <span class="transport-icon">🚄</span>
       <div class="transport-details">
         <p class="transport-route">Bruxelles-Midi → Amsterdam Centraal</p>
-        <p class="transport-meta">Thalys high-speed train (or IC direct) · Book via NS International</p>
+        <p class="transport-meta">Thalys or IC direct · Book via NS International · depart ~12:00</p>
       </div>
       <span class="transport-time">~1 hr 50 min</span>
     </div>
@@ -910,43 +647,43 @@
       <div class="block">
         <span class="block-time">Morning<br>09:00</span>
         <div class="block-content">
-          <h3>Brussels Morning Walk</h3>
+          <h3>Final Brussels Morning</h3>
           <ul class="activity-list">
-            <li>Atomium — futuristic landmark from the 1958 World's Fair (optional, outside the centre)</li>
-            <li>Final Belgian waffle with fruit and cream from a street stall near Grand-Place</li>
+            <li>Atomium exterior — the iconic 1958 World's Fair structure</li>
+            <li>One last Liège waffle at a street stand near Grand-Place</li>
+            <li>Pick up Belgian chocolates or Trappist beers for home</li>
           </ul>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Midday<br>12:30</span>
+        <span class="block-time">Midday<br>12:00</span>
         <div class="block-content">
           <h3>Travel to Amsterdam</h3>
-          <p>Board a midday Thalys or IC train. Arrive Amsterdam Centraal by ~14:30. Check in to a final night hotel near Schiphol or in the city centre.</p>
+          <p>Board the Thalys. Arrive Amsterdam Centraal ~13:50. Check in to your final night hotel near Schiphol or the centre.</p>
         </div>
       </div>
       <div class="block">
         <span class="block-time">Afternoon<br>15:00</span>
         <div class="block-content">
-          <h3>Final Amsterdam Afternoon</h3>
+          <h3>Farewell Amsterdam Afternoon</h3>
           <ul class="activity-list">
-            <li>Pick up any souvenirs — Delftware, stroopwafels, Dutch gin (jenever)</li>
-            <li>FOAM Photography Museum (often overlooked, always excellent)</li>
-            <li>Final canal-side café for bitterballen and a last Heineken</li>
+            <li>Last souvenir run — Delftware, stroopwafels, Dutch gin (jenever)</li>
+            <li>FOAM Photography Museum — consistently excellent rotating exhibitions</li>
+            <li>One final canal-side café for bitterballen and a cold Heineken</li>
           </ul>
         </div>
       </div>
       <div class="block">
         <span class="block-time">Evening<br>19:30</span>
         <div class="block-content">
-          <h3>Farewell Dinner</h3>
+          <h3>Farewell Dinner & Early Night</h3>
           <ul class="activity-list">
-            <li>Dinner somewhere memorable to celebrate the trip</li>
-            <li>Early night — your flight departs at 11:00 on Sep 6</li>
-            <li>Aim to be at Schiphol by 08:30–09:00 at the latest</li>
+            <li>Dinner to celebrate 10 extraordinary days across Europe</li>
+            <li>Early night — flight at 11:00, aim for Schiphol by 08:30</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🍽</span>Restaurant Vinkeles (Michelin-starred in a former bakery)</span>
-            <span class="food-rec"><span class="food-icon">🥩</span>Budget: Rijsel (Belgian-Dutch fusion in Oost)</span>
+            <span class="food-rec"><span class="food-icon">🍽</span>Restaurant Vinkeles — Michelin-starred in a 17th-century convent bakery</span>
+            <span class="food-rec"><span class="food-icon">🥩</span>Budget pick: Rijsel — superb Belgian-Dutch fusion in Amsterdam Oost</span>
           </div>
         </div>
       </div>
@@ -954,22 +691,22 @@
         <span class="block-time">Sep 6<br>08:00</span>
         <div class="block-content">
           <h3>✈ Depart Amsterdam Schiphol — 11:00</h3>
-          <p>Sprinter train from Amsterdam Centraal to Schiphol takes ~17 min. Allow ample time for international check-in. Safe travels!</p>
+          <p>Sprinter from Amsterdam Centraal takes 17 min to Schiphol. Be at check-in by 08:30 at the latest. Safe travels — what an incredible journey.</p>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> Schiphol has a Rijksmuseum annex inside the terminal (airside) — a wonderful parting gift if you have time before your gate.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> Schiphol has a Rijksmuseum annex inside the terminal (airside, past security) — a perfect parting gift if you clear security with time to spare.</p></div>
   </section>
 
 </main>
 
 <footer>
-  <p>10 Days · 5 Cities · 1 Grand Tour &nbsp;·&nbsp; Aug 27 – Sep 6 &nbsp;·&nbsp; Amsterdam Return</p>
+  <p>10 Days · 5 Cities · 3 Alpine Peaks · Aug 27 – Sep 6 &nbsp;·&nbsp; Amsterdam Return</p>
 </footer>
 
 <!-- FLOATING BUTTON -->
-<button class="fab" onclick="toggleBooking()" id="fab-btn" title="Open booking tracker">
-  <span id="fab-icon">📋</span>
+<button class="fab" onclick="toggleBooking()">
+  <span>📋</span>
   <span id="fab-label">Booking Tracker</span>
 </button>
 
@@ -981,9 +718,8 @@
         <p class="booking-eyebrow">Trip Planner</p>
         <h2 class="booking-title">Booking Tracker</h2>
       </div>
-      <button class="close-btn" onclick="toggleBooking()" title="Close">✕</button>
+      <button class="close-btn" onclick="toggleBooking()">✕</button>
     </div>
-
     <div class="booking-scroll">
       <table class="btable">
         <thead>
@@ -992,421 +728,197 @@
             <th class="bc-night">Nights</th>
             <th class="bc-hotel">Hotel</th>
             <th class="bc-travel">Transport</th>
-            <th class="bc-museum">Tickets / Museum</th>
+            <th class="bc-museum">Tickets / Attractions</th>
             <th class="bc-status">Booked?</th>
           </tr>
         </thead>
         <tbody>
-
-          <!-- AMSTERDAM -->
           <tr class="shdr"><td colspan="6">Amsterdam</td></tr>
           <tr>
             <td><span class="ctag a">Amsterdam</span><div class="dl">Aug 27 — Wed</div><div class="ds">Day 1 · Arrival</div></td>
-            <td><span class="nn">2</span><span class="nl">nights</span></td>
-            <td><div class="hn">Hotel near Jordaan / Museumplein</div></td>
+            <td><span class="nn">1</span><span class="nl">night</span></td>
+            <td><div class="hn">Hotel near Jordaan or Museumplein</div></td>
             <td><div class="tm">✈ Arrive AMS 10:20</div><div class="ti">Sprinter: Schiphol → Centraal (~17 min)</div></td>
-            <td><div class="tm">Anne Frank House</div><div class="ti">annefrank.org — sell out weeks ahead</div></td>
+            <td>
+              <div class="tm">Anne Frank House</div><div class="ti">annefrank.org — sells out weeks ahead</div>
+              <div class="tm" style="margin-top:6px">Rijksmuseum</div><div class="ti">rijksmuseum.nl — timed entry</div>
+              <div class="tm" style="margin-top:6px">Evening Canal Cruise</div><div class="ti">Various operators</div>
+            </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Anne Frank</span></label>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="ctag a">Amsterdam</span><div class="dl">Aug 28 — Thu</div><div class="ds">Day 2 · Full day</div></td>
-            <td><span class="ds">2nd night</span></td>
-            <td><div class="hn">Same hotel</div></td>
-            <td><div class="tm">No travel</div></td>
-            <td>
-              <div class="tm">Rijksmuseum</div><div class="ti">rijksmuseum.nl</div>
-              <div class="tm" style="margin-top:6px">Van Gogh Museum</div><div class="ti">vangoghmuseum.nl — timed entry required</div>
-            </td>
-            <td>
+              <label class="ck"><input type="checkbox"><span>Anne Frank House</span></label>
               <label class="ck"><input type="checkbox"><span>Rijksmuseum</span></label>
-              <label class="ck"><input type="checkbox"><span>Van Gogh</span></label>
+              <label class="ck"><input type="checkbox"><span>Canal cruise</span></label>
             </td>
           </tr>
 
-          <!-- COLOGNE -->
           <tr class="shdr"><td colspan="6">Cologne</td></tr>
           <tr>
-            <td><span class="ctag c">Cologne</span><div class="dl">Aug 29 — Fri</div><div class="ds">Day 3 · Travel day</div></td>
+            <td><span class="ctag c">Cologne</span><div class="dl">Aug 28 — Thu</div><div class="ds">Day 2 · Travel day</div></td>
             <td><span class="nn">1</span><span class="nl">night</span></td>
             <td><div class="hn">Hotel near Altstadt / Dom</div></td>
-            <td><div class="tm">🚄 AMS → Köln Hbf</div><div class="ti">ICE · ~2 hr 40 min · depart ~08:00</div></td>
-            <td><div class="tm">Cologne Cathedral Tower</div><div class="ti">Pay at door (~€6) — no pre-booking needed</div></td>
+            <td><div class="tm">🚄 AMS Centraal → Köln Hbf</div><div class="ti">ICE · ~2 hr 40 min · depart ~08:30</div></td>
+            <td>
+              <div class="tm">Cathedral South Tower Climb</div><div class="ti">~€6 — pay at door, no pre-booking</div>
+              <div class="tm" style="margin-top:6px">Museum Ludwig</div><div class="ti">museum-ludwig.de</div>
+            </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train</span></label>
+              <label class="ck"><input type="checkbox"><span>Train AMS→Cologne</span></label>
+              <label class="ck"><input type="checkbox"><span>Museum Ludwig</span></label>
             </td>
           </tr>
 
-          <!-- ZURICH -->
-          <tr class="shdr"><td colspan="6">Zurich</td></tr>
+          <tr class="shdr"><td colspan="6">Swiss Alps — Interlaken (3-night base)</td></tr>
           <tr>
-            <td><span class="ctag z">Zurich</span><div class="dl">Aug 30 — Sat</div><div class="ds">Day 4 · Travel day</div></td>
-            <td><span class="nn">2</span><span class="nl">nights</span></td>
-            <td><div class="hn">Hotel near Altstadt / lake</div></td>
-            <td><div class="tm">🚄 Köln Hbf → Zürich HB</div><div class="ti">ICE · ~4 hr 30 min · depart ~08:30</div></td>
-            <td><div class="tm">Fraumünster Church</div><div class="ti">Free entry (Chagall windows)</div></td>
+            <td><span class="ctag z">Swiss Alps</span><div class="dl">Aug 29 — Fri</div><div class="ds">Day 3 · Travel day</div></td>
+            <td><span class="nn">3</span><span class="nl">nights</span></td>
+            <td><div class="hn">Hotel in Interlaken</div><div class="ds">Base for all 3 Alps days</div></td>
+            <td><div class="tm">🚄 Köln Hbf → Basel → Interlaken Ost</div><div class="ti">ICE + SBB IC · ~5 hr 30 min · depart ~08:00</div></td>
             <td>
-              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train</span></label>
+              <div class="tm">Lake Thun Boat Cruise</div><div class="ti">bls.ch — book ahead in summer</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel (3 nights)</span></label>
+              <label class="ck"><input type="checkbox"><span>Train Cologne→Interlaken</span></label>
+              <label class="ck"><input type="checkbox"><span>Lake Thun cruise</span></label>
             </td>
           </tr>
           <tr>
-            <td><span class="ctag z">Zurich</span><div class="dl">Aug 31 — Sun</div><div class="ds">Day 5 · Day trip</div></td>
-            <td><span class="ds">2nd night</span></td>
+            <td><span class="ctag z">Swiss Alps</span><div class="dl">Aug 30 — Sat</div><div class="ds">Day 4 · Jungfraujoch</div></td>
+            <td><span class="ds">2nd of 3 nights</span></td>
             <td><div class="hn">Same hotel</div></td>
-            <td><div class="tm">🚄 Zurich → Lucerne (day trip)</div><div class="ti">~50 min each way</div></td>
-            <td><div class="tm">Mt. Pilatus Golden Round Trip</div><div class="ti">pilatus.ch — book online, popular in summer</div></td>
+            <td><div class="tm">🏔 Rack railway: Interlaken → Jungfraujoch</div><div class="ti">~2.5 hr each way · depart ~07:35</div></td>
             <td>
-              <label class="ck"><input type="checkbox"><span>Train tickets</span></label>
-              <label class="ck"><input type="checkbox"><span>Mt. Pilatus</span></label>
+              <div class="tm">Jungfraujoch Summit Ticket</div><div class="ti">jungfrau.ch — CHF 145–215, book well ahead</div>
+              <div class="tm" style="margin-top:6px">Grindelwald First (optional)</div><div class="ti">jungfrau.ch — cable car, extra fee</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Jungfraujoch ticket</span></label>
+              <label class="ck"><input type="checkbox"><span>Grindelwald First (opt.)</span></label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="ctag z">Swiss Alps</span><div class="dl">Aug 31 — Sun</div><div class="ds">Day 5 · Schilthorn</div></td>
+            <td><span class="ds">3rd of 3 nights</span></td>
+            <td><div class="hn">Same hotel</div></td>
+            <td><div class="tm">🚡 Cable car: Stechelberg → Schilthorn (Piz Gloria)</div><div class="ti">Via Gimmelwald & Mürren · ~1 hr each way</div></td>
+            <td>
+              <div class="tm">Schilthorn Cable Car</div><div class="ti">schilthorn.ch — CHF 100+, book ahead in summer</div>
+              <div class="tm" style="margin-top:6px">Trümmelbach Falls</div><div class="ti">truemmelbach.ch — CHF ~14, pay at door</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Schilthorn ticket</span></label>
+              <label class="ck"><input type="checkbox"><span>Trümmelbach Falls</span></label>
             </td>
           </tr>
 
-          <!-- PARIS -->
           <tr class="shdr"><td colspan="6">Paris</td></tr>
           <tr>
             <td><span class="ctag p">Paris</span><div class="dl">Sep 1 — Mon</div><div class="ds">Day 6 · Travel day</div></td>
             <td><span class="nn">3</span><span class="nl">nights</span></td>
             <td><div class="hn">Hotel Left Bank or Marais</div></td>
-            <td><div class="tm">🚄 Zürich HB → Paris Gare de Lyon</div><div class="ti">TGV Lyria · ~4 hr · depart ~08:00</div></td>
-            <td><div class="tm">Eiffel Tower (top floor)</div><div class="ti">toureiffel.paris — book timed slot</div></td>
+            <td><div class="tm">🚄 Interlaken Ost → Bern → Paris Gare de Lyon</div><div class="ti">SBB IC + TGV Lyria · ~5 hr 30 min · depart ~08:00</div></td>
             <td>
-              <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train</span></label>
+              <div class="tm">Eiffel Tower (top floor)</div><div class="ti">toureiffel.paris — book timed slot in advance</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Hotel (3 nights)</span></label>
+              <label class="ck"><input type="checkbox"><span>Train Interlaken→Paris</span></label>
               <label class="ck"><input type="checkbox"><span>Eiffel Tower</span></label>
             </td>
           </tr>
           <tr>
             <td><span class="ctag p">Paris</span><div class="dl">Sep 2 — Tue</div><div class="ds">Day 7 · Museums</div></td>
-            <td><span class="ds">2nd night</span></td>
+            <td><span class="ds">2nd of 3 nights</span></td>
             <td><div class="hn">Same hotel</div></td>
             <td><div class="tm">No travel</div></td>
             <td>
               <div class="tm">The Louvre</div><div class="ti">ticketlouvre.fr — mandatory online booking</div>
-              <div class="tm" style="margin-top:6px">Musée d'Orsay</div><div class="ti">musee-orsay.fr — timed entry recommended</div>
+              <div class="tm" style="margin-top:6px">Musée d'Orsay</div><div class="ti">musee-orsay.fr — timed entry</div>
             </td>
             <td>
-              <label class="ck"><input type="checkbox"><span>Louvre</span></label>
-              <label class="ck"><input type="checkbox"><span>Orsay</span></label>
+              <label class="ck"><input type="checkbox"><span>Louvre ticket</span></label>
+              <label class="ck"><input type="checkbox"><span>Musée d'Orsay ticket</span></label>
             </td>
           </tr>
           <tr>
             <td><span class="ctag p">Paris</span><div class="dl">Sep 3 — Wed</div><div class="ds">Day 8 · Versailles</div></td>
-            <td><span class="ds">3rd night</span></td>
+            <td><span class="ds">3rd of 3 nights</span></td>
             <td><div class="hn">Same hotel</div></td>
-            <td><div class="tm">🚆 Paris → Versailles (RER C)</div><div class="ti">~40 min, €7 round trip</div></td>
-            <td><div class="tm">Palace of Versailles</div><div class="ti">en.chateauversailles.fr — book timed entry</div></td>
+            <td><div class="tm">🚆 RER C → Versailles Rive Gauche</div><div class="ti">~40 min · ~€7 return</div></td>
             <td>
-              <label class="ck"><input type="checkbox"><span>Versailles</span></label>
+              <div class="tm">Palace of Versailles</div><div class="ti">en.chateauversailles.fr — timed entry essential</div>
+            </td>
+            <td>
+              <label class="ck"><input type="checkbox"><span>Versailles ticket</span></label>
             </td>
           </tr>
 
-          <!-- BRUSSELS -->
           <tr class="shdr"><td colspan="6">Brussels</td></tr>
           <tr>
             <td><span class="ctag b">Brussels</span><div class="dl">Sep 4 — Thu</div><div class="ds">Day 9 · Travel day</div></td>
             <td><span class="nn">1</span><span class="nl">night</span></td>
             <td><div class="hn">Hotel near Grand-Place</div></td>
             <td><div class="tm">🚄 Paris Gare du Nord → Bruxelles-Midi</div><div class="ti">Thalys · ~1 hr 25 min · depart ~10:00</div></td>
-            <td><div class="tm">Magritte Museum</div><div class="ti">musee-magritte-museum.be — walk-in usually fine</div></td>
+            <td>
+              <div class="tm">Magritte Museum</div><div class="ti">musee-magritte-museum.be</div>
+            </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train</span></label>
+              <label class="ck"><input type="checkbox"><span>Train Paris→Brussels</span></label>
             </td>
           </tr>
 
-          <!-- AMSTERDAM RETURN -->
           <tr class="shdr"><td colspan="6">Amsterdam (return)</td></tr>
           <tr>
             <td><span class="ctag a">Amsterdam</span><div class="dl">Sep 5 — Fri</div><div class="ds">Day 10 · Return</div></td>
             <td><span class="nn">1</span><span class="nl">night</span></td>
             <td><div class="hn">Hotel near Schiphol or centre</div></td>
-            <td><div class="tm">🚄 Bruxelles-Midi → Amsterdam Centraal</div><div class="ti">Thalys · ~1 hr 50 min · depart ~12:30</div></td>
-            <td><div class="tm">FOAM Photography Museum</div><div class="ti">foam.org — walk-in usually available</div></td>
+            <td><div class="tm">🚄 Bruxelles-Midi → Amsterdam Centraal</div><div class="ti">Thalys · ~1 hr 50 min · depart ~12:00</div></td>
+            <td>
+              <div class="tm">FOAM Photography Museum</div><div class="ti">foam.org — walk-in usually available</div>
+            </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train</span></label>
+              <label class="ck"><input type="checkbox"><span>Train Brussels→AMS</span></label>
             </td>
           </tr>
           <tr>
             <td><span class="ctag a">Amsterdam</span><div class="dl">Sep 6 — Sat</div><div class="ds">Departure</div></td>
-            <td>—</td>
-            <td>—</td>
+            <td>—</td><td>—</td>
             <td><div class="tm">✈ Depart AMS 11:00</div><div class="ti">Sprinter: Centraal → Schiphol · be there by 08:30</div></td>
-            <td>—</td>
-            <td>—</td>
+            <td>—</td><td>—</td>
           </tr>
-
         </tbody>
       </table>
-    </div><!-- /booking-scroll -->
-
+    </div>
     <div class="booking-footer">
-      <span id="progress-text">0 of 22 items booked</span>
+      <span id="progress-text">0 items booked</span>
       <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill"></div></div>
     </div>
   </div>
 </div>
-
-<style>
-  /* FLOATING BUTTON */
-  .fab {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    background: var(--ink);
-    color: var(--paper);
-    border: none;
-    border-radius: 50px;
-    padding: 14px 22px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    z-index: 900;
-    box-shadow: 0 4px 24px rgba(26,23,20,0.28);
-    transition: transform 0.18s ease, background 0.18s ease;
-  }
-  .fab:hover { background: #2e2a26; transform: translateY(-2px); }
-  .fab:active { transform: scale(0.97); }
-
-  /* OVERLAY */
-  .booking-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(26,23,20,0.55);
-    z-index: 1000;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.28s ease;
-  }
-  .booking-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-  .booking-panel {
-    background: var(--paper);
-    width: 100%;
-    max-width: 1100px;
-    max-height: 88vh;
-    border-radius: 16px 16px 0 0;
-    display: flex;
-    flex-direction: column;
-    transform: translateY(40px);
-    transition: transform 0.3s cubic-bezier(0.34, 1.28, 0.64, 1);
-    overflow: hidden;
-  }
-  .booking-overlay.open .booking-panel {
-    transform: translateY(0);
-  }
-
-  /* PANEL HEADER */
-  .booking-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 32px 18px;
-    border-bottom: 1px solid var(--light-rule);
-    flex-shrink: 0;
-  }
-  .booking-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-  .booking-title {
-    font-size: 1.5rem;
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-  .close-btn {
-    background: none;
-    border: 1px solid var(--light-rule);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-    cursor: pointer;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.15s;
-  }
-  .close-btn:hover { background: var(--cream); }
-
-  /* SCROLLABLE TABLE AREA */
-  .booking-scroll {
-    overflow: auto;
-    flex: 1;
-    padding: 0 32px 16px;
-  }
-
-  /* TABLE */
-  .btable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    table-layout: fixed;
-    min-width: 860px;
-  }
-  .btable thead th {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 14px 12px 10px;
-    text-align: left;
-    border-bottom: 1px solid var(--light-rule);
-    position: sticky;
-    top: 0;
-    background: var(--paper);
-    z-index: 2;
-  }
-  .bc-date   { width: 14%; }
-  .bc-night  { width: 7%; }
-  .bc-hotel  { width: 18%; }
-  .bc-travel { width: 23%; }
-  .bc-museum { width: 23%; }
-  .bc-status { width: 15%; }
-
-  .btable tbody tr { border-bottom: 1px solid var(--light-rule); }
-  .btable tbody tr:last-child { border-bottom: none; }
-  .btable tbody td { padding: 12px; vertical-align: top; }
-
-  /* SECTION HEADER ROW */
-  .shdr td {
-    background: var(--cream);
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 6px 12px;
-  }
-
-  /* CITY BADGE */
-  .ctag {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 2px;
-    color: white;
-    margin-bottom: 4px;
-  }
-  .ctag.a { background: var(--ams); }
-  .ctag.c { background: var(--col); }
-  .ctag.z { background: var(--zur); }
-  .ctag.p { background: var(--par); }
-  .ctag.b { background: var(--bru); }
-
-  .dl { font-weight: 600; font-size: 13px; color: var(--ink); }
-  .ds { font-size: 11px; color: var(--muted); }
-  .nn { display: block; font-size: 20px; font-weight: 300; color: var(--ink); line-height: 1.2; }
-  .nl { display: block; font-size: 11px; color: var(--muted); }
-  .hn { font-size: 13px; color: var(--ink); }
-  .tm { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
-  .ti { font-size: 11px; color: var(--muted); line-height: 1.4; }
-
-  /* CHECKBOXES */
-  .ck {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
-  .ck input[type="checkbox"] {
-    width: 14px;
-    height: 14px;
-    accent-color: var(--accent);
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-  .ck span {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.03em;
-    user-select: none;
-  }
-  .ck input:checked + span {
-    color: var(--zur);
-    text-decoration: line-through;
-    text-decoration-color: var(--zur);
-  }
-
-  /* PROGRESS FOOTER */
-  .booking-footer {
-    flex-shrink: 0;
-    padding: 14px 32px;
-    border-top: 1px solid var(--light-rule);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--cream);
-  }
-  #progress-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  .progress-bar-wrap {
-    flex: 1;
-    height: 4px;
-    background: var(--light-rule);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--zur);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-  }
-</style>
 
 <script>
   function toggleBooking() {
     var overlay = document.getElementById('booking-overlay');
     var label = document.getElementById('fab-label');
     var isOpen = overlay.classList.toggle('open');
-    overlay.setAttribute('aria-hidden', !isOpen);
+    overlay.setAttribute('aria-hidden', String(!isOpen));
     label.textContent = isOpen ? 'Close Tracker' : 'Booking Tracker';
     if (isOpen) updateProgress();
   }
-
   document.getElementById('booking-overlay').addEventListener('click', function(e) {
     if (e.target === this) toggleBooking();
   });
-
   function updateProgress() {
     var all = document.querySelectorAll('.btable input[type="checkbox"]');
     var checked = document.querySelectorAll('.btable input[type="checkbox"]:checked');
     var pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
-    document.getElementById('progress-text').textContent = checked.length + ' of ' + all.length + ' items booked';
+    document.getElementById('progress-text').textContent = checked.length + ' of ' + all.length + ' items booked (' + pct + '%)';
     document.getElementById('progress-fill').style.width = pct + '%';
   }
-
   document.querySelectorAll('.btable input[type="checkbox"]').forEach(function(cb) {
     cb.addEventListener('change', updateProgress);
   });
