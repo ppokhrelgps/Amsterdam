@@ -924,5 +924,467 @@
   });
 </script>
 
+
+<!-- ═══════════════════════════════════════════════
+     SWITZERLAND JUNGFRAU DETAILED ITINERARY BUTTON
+════════════════════════════════════════════════ -->
+
+<!-- FAB for Switzerland -->
+<button class="fab fab-swiss" onclick="toggleSwiss()" id="swiss-btn">
+  <span>🏔</span>
+  <span id="swiss-label">Swiss Alps Detail</span>
+</button>
+
+<!-- Switzerland Overlay -->
+<div id="swiss-overlay" class="booking-overlay" aria-hidden="true">
+  <div class="booking-panel swiss-panel">
+    <div class="booking-header">
+      <div>
+        <p class="booking-eyebrow" style="color:#1D9E75;">Swiss Alps Planner</p>
+        <h2 class="booking-title">Jungfrau Region — Detailed Itinerary</h2>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:0.06em;">Aug 29 – Sep 1 · Interlaken Base · Eurail pass guide included</p>
+      </div>
+      <button class="close-btn" onclick="toggleSwiss()">✕</button>
+    </div>
+
+    <!-- Swiss content injected below -->
+    <div class="swiss-scroll">
+      <div class="swiss-inner">
+        
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.tabs { display: flex; gap: 4px; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.tab { padding: 8px 16px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; background: none; color: var(--color-text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; }
+.tab.active { color: var(--color-text-primary); border-bottom-color: var(--color-text-primary); }
+.tab:hover:not(.active) { color: var(--color-text-primary); }
+.panel { display: none; }
+.panel.active { display: block; }
+.day-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.day-badge { background: #E1F5EE; color: #0F6E56; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; }
+.day-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.day-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+.timeline { position: relative; padding-left: 28px; margin-bottom: 1.5rem; }
+.timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 0; width: 1px; background: var(--color-border-tertiary); }
+.tl-item { position: relative; margin-bottom: 16px; }
+.tl-dot { position: absolute; left: -24px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #1D9E75; border: 2px solid var(--color-background-primary); }
+.tl-dot.pay { background: #D85A30; }
+.tl-dot.free { background: #1D9E75; }
+.tl-dot.neutral { background: #888780; }
+.tl-time { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 2px; }
+.tl-label { font-size: 14px; color: var(--color-text-primary); line-height: 1.4; }
+.tl-note { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; }
+.coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+.cov-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; background: var(--color-background-primary); }
+.cov-card h3 { font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+.cov-card h3.green { color: #0F6E56; }
+.cov-card h3.orange { color: #BA7517; }
+.cov-item { font-size: 12px; color: var(--color-text-secondary); padding: 4px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.4; }
+.cov-item:last-child { border-bottom: none; }
+.cov-icon { display: inline-block; width: 14px; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 1.5rem; }
+.price-table th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 500; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); }
+.price-table td { padding: 8px 12px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: top; line-height: 1.4; }
+.price-table tr:last-child td { border-bottom: none; }
+.chf { font-size: 11px; color: var(--color-text-tertiary); }
+.highlight { color: #0F6E56; font-weight: 500; }
+.highlight-orange { color: #BA7517; font-weight: 500; }
+.tag { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 4px; }
+.tag-free { background: #E1F5EE; color: #0F6E56; }
+.tag-discount { background: #FAEEDA; color: #854F0B; }
+.tag-full { background: #FCEBEB; color: #A32D2D; }
+.tag-iconic { background: #E6F1FB; color: #185FA5; }
+.budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+.budget-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px; }
+.budget-card .label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 6px; }
+.budget-card .val { font-size: 18px; font-weight: 500; color: var(--color-text-primary); }
+.budget-card .sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+.rec-box { border: 2px solid #1D9E75; border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.5rem; background: var(--color-background-primary); }
+.rec-box .rec-title { font-size: 13px; font-weight: 500; color: #0F6E56; margin-bottom: 8px; }
+.rec-box ul { list-style: none; padding: 0; }
+.rec-box ul li { font-size: 13px; color: var(--color-text-secondary); padding: 3px 0; padding-left: 14px; position: relative; }
+.rec-box ul li::before { content: '→'; position: absolute; left: 0; color: #1D9E75; font-size: 12px; }
+.section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+.pass-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+.pass-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; background: var(--color-background-primary); }
+.pass-card.recommended { border: 2px solid #1D9E75; }
+.pass-card .pass-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.pass-card .pass-price { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 10px; }
+.pass-row { font-size: 12px; color: var(--color-text-secondary); padding: 3px 0; display: flex; gap: 6px; }
+.pass-row .pi { color: #0F6E56; }
+.pass-row .px { color: #A32D2D; }
+.pass-badge { display: inline-block; font-size: 10px; padding: 2px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 99px; margin-bottom: 8px; }
+</style>
+
+<h2 class="sr-only">Switzerland Jungfrau Region Travel Planner — 2.5 day itinerary with Eurail pass guide, pricing, and recommendations for Aug 29 to Sep 1</h2>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('itinerary')">Itinerary</button>
+  <button class="tab" onclick="showTab('coverage')">Eurail coverage</button>
+  <button class="tab" onclick="showTab('prices')">Prices & savings</button>
+  <button class="tab" onclick="showTab('strategy')">Best strategy</button>
+</div>
+
+<div id="itinerary" class="panel active">
+  <div class="day-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Day 1 — Aug 29</span></div>
+      <div class="day-title">Arrival afternoon → Harder Kulm sunset</div>
+      <div class="day-sub">Arrive Interlaken ~2:00 PM · Easy orientation day</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">~2:00 PM</div>
+      <div class="tl-label">Arrive Interlaken Ost <span class="tag tag-free">Eurail covered</span></div>
+      <div class="tl-note">Check into hostel/hotel · drop bags</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">2:30–4:00 PM</div>
+      <div class="tl-label">Stroll Interlaken · Aare River walk</div>
+      <div class="tl-note">Explore the town, grab coffee, lake views</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pay"></div>
+      <div class="tl-time">4:30–8:00 PM</div>
+      <div class="tl-label">Harder Kulm funicular — evening visit <span class="tag tag-discount">25% off w/ Eurail</span></div>
+      <div class="tl-note">Full price CHF 44 · With Eurail: CHF ~33 · Stunning dual-lake + Jungfrau sunset view · Last funicular down ~9pm in summer</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot neutral"></div>
+      <div class="tl-time">8:30 PM</div>
+      <div class="tl-label">Dinner in Interlaken</div>
+      <div class="tl-note">Rösti or fondue at a mid-range restaurant · CHF 20–35 budget</div>
+    </div>
+  </div>
+
+  <div class="day-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Day 2 — Aug 30</span></div>
+      <div class="day-title">Jungfraujoch — Top of Europe</div>
+      <div class="day-sub">Full day · Start early · The iconic splurge</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">7:00 AM</div>
+      <div class="tl-label">Train Interlaken Ost → Grindelwald Terminal <span class="tag tag-free">Eurail covered</span></div>
+      <div class="tl-note">Depart early to catch morning trains · lovely valley views</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pay"></div>
+      <div class="tl-time">8:00–1:00 PM</div>
+      <div class="tl-label">Eiger Express + Jungfraubahn to Jungfraujoch (3,454m) <span class="tag tag-discount">25% off</span></div>
+      <div class="tl-note">Full price: CHF 261 · With Eurail: ~CHF 196 · Ice Palace, Sphinx terrace, Aletsch glacier views · Add CHF 10 seat reservation (recommended in Aug)</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">1:00–3:30 PM</div>
+      <div class="tl-label">Descend via Lauterbrunnen route <span class="tag tag-free">Eurail covered</span></div>
+      <div class="tl-note">Go up via Grindelwald, down via Kleine Scheidegg → Lauterbrunnen — see both valleys!</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">3:30–5:30 PM</div>
+      <div class="tl-label">Lauterbrunnen Valley walk <span class="tag tag-free">Free</span></div>
+      <div class="tl-note">Staubbach Falls · 72 waterfalls valley · incredibly scenic, no ticket needed</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">5:30 PM</div>
+      <div class="tl-label">Train back to Interlaken <span class="tag tag-free">Eurail covered</span></div>
+      <div class="tl-note">Relax, dinner, rest</div>
+    </div>
+  </div>
+
+  <div class="day-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Day 3 — Aug 31</span></div>
+      <div class="day-title">Schilthorn + Mürren village</div>
+      <div class="day-sub">Dramatic cable car · James Bond vibes · Car-free village</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">8:00 AM</div>
+      <div class="tl-label">Train Interlaken → Lauterbrunnen <span class="tag tag-free">Eurail covered</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">8:30 AM</div>
+      <div class="tl-label">Bus Lauterbrunnen → Stechelberg <span class="tag tag-free">Eurail covered</span></div>
+      <div class="tl-note">Postbus — fully covered by Eurail pass</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pay"></div>
+      <div class="tl-time">9:00 AM–1:00 PM</div>
+      <div class="tl-label">Cable car to Schilthorn (2,970m) — Piz Gloria <span class="tag tag-discount">25% off</span></div>
+      <div class="tl-note">Full price from Stechelberg: CHF 115 · With Eurail: ~CHF 86 · 360° panorama restaurant · Bond World exhibition · Thrill Walk at Birg</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">1:30–4:30 PM</div>
+      <div class="tl-label">Mürren village exploration <span class="tag tag-free">Free</span></div>
+      <div class="tl-note">Car-free clifftop village · walk to Allmendhubel viewpoint · breathtaking Eiger/Mönch/Jungfrau views</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">5:00 PM</div>
+      <div class="tl-label">Return to Interlaken <span class="tag tag-free">Eurail covered</span></div>
+      <div class="tl-note">Cable car → Grütschalp → train → Interlaken (scenic route)</div>
+    </div>
+  </div>
+
+  <div class="day-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Sep 1 AM</span></div>
+      <div class="day-title">Morning departure to Paris</div>
+      <div class="day-sub">Early train via Basel or Bern</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot free"></div>
+      <div class="tl-time">8:00–9:00 AM</div>
+      <div class="tl-label">Interlaken → Bern/Basel → Paris <span class="tag tag-free">Eurail covered (to border)</span></div>
+      <div class="tl-note">TGV Lyria to Paris requires a seat reservation (~€15–25). Book in advance.</div>
+    </div>
+  </div>
+</div>
+
+<div id="coverage" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">Your 7-day Eurail Global Pass significantly covers the Jungfrau region — much better than many travelers expect.</p>
+  <div class="coverage-grid">
+    <div class="cov-card">
+      <h3 class="green">Covered by Eurail</h3>
+      <div class="cov-item"><span class="cov-icon">✓</span> SBB trains (all main lines Switzerland)</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Interlaken ↔ Grindelwald</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Interlaken ↔ Lauterbrunnen</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Lauterbrunnen ↔ Wengen ↔ Mürren</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Grütschalp–Mürren mountain rail</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Postbus: Lauterbrunnen → Stechelberg</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Lake Thun & Lake Brienz boats</div>
+      <div class="cov-item"><span class="cov-icon">✓</span> Train to/from Paris (+ reservation fee)</div>
+    </div>
+    <div class="cov-card">
+      <h3 class="orange">25–50% discounts only</h3>
+      <div class="cov-item">25% off — Jungfraujoch (entire journey)</div>
+      <div class="cov-item">25% off — Kleine Scheidegg trains</div>
+      <div class="cov-item">25% off — Schilthorn cable car</div>
+      <div class="cov-item">25% off — Harder Kulm funicular</div>
+      <div class="cov-item">50% off — Grindelwald First gondola</div>
+      <div class="cov-item">No extra pass day needed for discounts</div>
+      <div class="cov-item" style="color:var(--color-text-tertiary);font-style:italic;">Note: Lauterbrunnen–Grütschalp cable car closed until Jul 10, 2026 — but Aug 29 trip is fine</div>
+    </div>
+  </div>
+  <div class="rec-box">
+    <div class="rec-title">Key Eurail insight for the Jungfrau region</div>
+    <ul>
+      <li>Discounts do NOT require using a travel day — just show your pass</li>
+      <li>Boats on Lake Thun and Lake Brienz are 100% free — a scenic bonus</li>
+      <li>Swiss Travel Pass gives 50% off Jungfraujoch (vs Eurail's 25%) but costs ~CHF 250+ for 3 days and doesn't cover your other countries</li>
+      <li>You do NOT need a Swiss Travel Pass on top of Eurail</li>
+    </ul>
+  </div>
+</div>
+
+<div id="prices" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">All prices in CHF. Peak season (May–Oct). No travel day consumed for mountain discounts.</p>
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Excursion</th>
+        <th>Full price</th>
+        <th>With Eurail</th>
+        <th>Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Jungfraujoch</strong> <span class="tag tag-iconic">iconic</span><br><span style="font-size:11px;color:var(--color-text-tertiary);">Return from Interlaken Ost</span></td>
+        <td>CHF 261</td>
+        <td class="highlight">CHF ~196</td>
+        <td>~CHF 65</td>
+      </tr>
+      <tr>
+        <td><strong>Schilthorn/Piz Gloria</strong><br><span style="font-size:11px;color:var(--color-text-tertiary);">Return from Stechelberg</span></td>
+        <td>CHF 115</td>
+        <td class="highlight">CHF ~86</td>
+        <td>~CHF 29</td>
+      </tr>
+      <tr>
+        <td><strong>Harder Kulm</strong><br><span style="font-size:11px;color:var(--color-text-tertiary);">Return from Interlaken</span></td>
+        <td>CHF 44</td>
+        <td class="highlight">CHF ~33</td>
+        <td>~CHF 11</td>
+      </tr>
+      <tr>
+        <td><strong>Grindelwald First gondola</strong><br><span style="font-size:11px;color:var(--color-text-tertiary);">Return from Grindelwald</span></td>
+        <td>CHF 76</td>
+        <td class="highlight">CHF ~38</td>
+        <td>~CHF 38 <span style="font-size:10px;">(50% off!)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Jungfraujoch seat reservation</strong><br><span style="font-size:11px;color:var(--color-text-tertiary);">Mandatory May–Oct</span></td>
+        <td>CHF 10</td>
+        <td>CHF 10</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Estimated daily costs (mid-range)</div>
+  <div class="budget-grid">
+    <div class="budget-card">
+      <div class="label">Accommodation/night</div>
+      <div class="val">CHF 60–100</div>
+      <div class="sub">Hostel dorm–private room</div>
+    </div>
+    <div class="budget-card">
+      <div class="label">Food per day</div>
+      <div class="val">CHF 40–60</div>
+      <div class="sub">Coop picnic lunch, sit-down dinner</div>
+    </div>
+    <div class="budget-card">
+      <div class="label">Total 2.5-day est.</div>
+      <div class="val">CHF 600–700</div>
+      <div class="sub">Incl. Jungfraujoch + Schilthorn</div>
+    </div>
+  </div>
+
+  <div class="section-title">Money-saving tips</div>
+  <div class="rec-box">
+    <ul>
+      <li>Buy groceries at Coop or Migros for lunch — saves CHF 15–20/day vs restaurants</li>
+      <li>Schilthorn brunch package (~CHF 129) is a tourist meal — skip it and eat in Mürren</li>
+      <li>Lauterbrunnen Valley and Mürren village are free — no ticket needed for stunning views</li>
+      <li>The boat on Lake Brienz is 100% free with Eurail — a lovely half-day option if weather is bad for mountains</li>
+      <li>Book Jungfraujoch ticket online in advance — seat reservations in August can sell out</li>
+    </ul>
+  </div>
+</div>
+
+<div id="strategy" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">Should you buy the Swiss Travel Pass, Jungfrau Travel Pass, or just use your Eurail pass?</p>
+
+  <div class="pass-compare">
+    <div class="pass-card recommended">
+      <span class="pass-badge">Recommended for you</span>
+      <div class="pass-name">Eurail Global Pass only</div>
+      <div class="pass-price">Already purchased · No extra cost</div>
+      <div class="pass-row"><span class="pi">✓</span> Covers all train travel in region</div>
+      <div class="pass-row"><span class="pi">✓</span> 25% off Jungfraujoch, Schilthorn, Harder Kulm</div>
+      <div class="pass-row"><span class="pi">✓</span> 50% off Grindelwald First</div>
+      <div class="pass-row"><span class="pi">✓</span> Free boats on lakes Thun + Brienz</div>
+      <div class="pass-row"><span class="pi">✓</span> Works for your whole Europe trip</div>
+      <div class="pass-row"><span class="px">✗</span> Only 25% off Jungfraujoch (not 50%)</div>
+    </div>
+    <div class="pass-card">
+      <div class="pass-name">Swiss Travel Pass (3-day)</div>
+      <div class="pass-price">~CHF 250+ additional cost</div>
+      <div class="pass-row"><span class="pi">✓</span> 50% off Jungfraujoch (saves extra ~CHF 33)</div>
+      <div class="pass-row"><span class="pi">✓</span> 50% off Grindelwald First (same as Eurail)</div>
+      <div class="pass-row"><span class="pi">✓</span> Free buses and city trams</div>
+      <div class="pass-row"><span class="px">✗</span> Costs ~CHF 250 extra</div>
+      <div class="pass-row"><span class="px">✗</span> Only covers Switzerland</div>
+      <div class="pass-row"><span class="px">✗</span> Extra savings vs Eurail: ~CHF 30–40 total</div>
+    </div>
+  </div>
+
+  <div class="pass-compare">
+    <div class="pass-card">
+      <div class="pass-name">Jungfrau Travel Pass (3-day)</div>
+      <div class="pass-price">CHF 165–180 additional</div>
+      <div class="pass-row"><span class="pi">✓</span> Free: Harder Kulm, Grindelwald First, Mürren</div>
+      <div class="pass-row"><span class="pi">✓</span> CHF 63–75 top-up to Jungfraujoch</div>
+      <div class="pass-row"><span class="px">✗</span> Only valid within Jungfrau region</div>
+      <div class="pass-row"><span class="px">✗</span> Jungfraujoch still requires extra payment</div>
+      <div class="pass-row"><span class="px">✗</span> Overkill for 2.5 days with Eurail</div>
+    </div>
+    <div class="pass-card">
+      <div class="pass-name">Swiss Half Fare Card</div>
+      <div class="pass-price">CHF 120 / 1 month</div>
+      <div class="pass-row"><span class="pi">✓</span> 50% off almost everything in Switzerland</div>
+      <div class="pass-row"><span class="pi">✓</span> Jungfraujoch for CHF 130 (vs CHF 196 Eurail)</div>
+      <div class="pass-row"><span class="px">✗</span> CHF 120 upfront cost</div>
+      <div class="pass-row"><span class="px">✗</span> Savings justify it only for 7+ days in Switzerland</div>
+    </div>
+  </div>
+
+  <div class="rec-box">
+    <div class="rec-title">Verdict: Stick with Eurail only. Here's why.</div>
+    <ul>
+      <li>Swiss Travel Pass saves you ~CHF 33 on Jungfraujoch vs Eurail, but costs CHF 250+ to buy — a net loss</li>
+      <li>Jungfrau Travel Pass would be useful only if you skip Jungfraujoch summit and do many local excursions — not your plan</li>
+      <li>Your 7-day Eurail pass handles all train travel free, and mountain discounts don't consume a travel day</li>
+      <li>Use 1 Eurail travel day: Interlaken → Paris (Sep 1). Save remaining days for Germany/Belgium legs</li>
+      <li>Total mountain out-of-pocket with Eurail: ~CHF 315 (Jungfraujoch + Schilthorn + Harder Kulm)</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Position Swiss FAB above the booking tracker FAB */
+  .fab-swiss {
+    bottom: 90px;
+    background: #1a4a32;
+  }
+  .fab-swiss:hover { background: #0f3322 !important; }
+
+  .swiss-panel {
+    max-width: 820px;
+  }
+  .swiss-scroll {
+    overflow: auto;
+    flex: 1;
+    padding: 0;
+  }
+  .swiss-inner {
+    padding: 24px 32px 32px;
+    /* Override CSS vars from the widget so it renders correctly inside our dark-paper theme */
+    --font-sans: 'DM Mono', 'Cormorant Garamond', Georgia, serif;
+    --color-text-primary: #1a1714;
+    --color-text-secondary: #5a5048;
+    --color-text-tertiary: #7a7268;
+    --color-background-primary: #f5f0e8;
+    --color-background-secondary: #ede7d9;
+    --color-border-tertiary: #ddd5c4;
+    --color-border-primary: #c8bfb0;
+    --border-radius-lg: 6px;
+    --border-radius-md: 4px;
+  }
+</style>
+
+<script>
+  function toggleSwiss() {
+    var overlay = document.getElementById('swiss-overlay');
+    var label = document.getElementById('swiss-label');
+    var isOpen = overlay.classList.toggle('open');
+    overlay.setAttribute('aria-hidden', String(!isOpen));
+    label.textContent = isOpen ? 'Close Planner' : 'Swiss Alps Detail';
+  }
+  document.getElementById('swiss-overlay').addEventListener('click', function(e) {
+    if (e.target === this) toggleSwiss();
+  });
+</script>
+
 </body>
 </html>
