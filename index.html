@@ -1,3 +1,6 @@
+
+
+Europe itinerary · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,11 +62,11 @@
   .section-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--light-rule); }
   footer { background: var(--ink); color: rgba(245,240,232,0.45); text-align: center; padding: 32px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
   @media (max-width: 600px) { header, main, .route-strip { padding-left: 24px; padding-right: 24px; } .block { grid-template-columns: 70px 1fr; } .day-title { font-size: 1.4rem; } }
-
+ 
   /* FLOATING BUTTON */
   .fab { position: fixed; bottom: 32px; right: 32px; background: var(--ink); color: var(--paper); border: none; border-radius: 50px; padding: 14px 22px; display: flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer; z-index: 900; box-shadow: 0 4px 24px rgba(26,23,20,0.28); transition: transform 0.18s ease, background 0.18s ease; }
   .fab:hover { background: #2e2a26; transform: translateY(-2px); }
-
+ 
   /* BOOKING OVERLAY */
   .booking-overlay { position: fixed; inset: 0; background: rgba(26,23,20,0.55); z-index: 1000; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.28s ease; }
   .booking-overlay.open { opacity: 1; pointer-events: all; }
@@ -102,7 +105,7 @@
 </style>
 </head>
 <body>
-
+ 
 <header>
   <div class="header-inner">
     <p class="eyebrow">10-Day Grand Tour · Aug 27 – Sep 6, 2025</p>
@@ -110,7 +113,7 @@
     <p class="subtitle">Amsterdam · Cologne · Swiss Alps · Paris · Brussels · Amsterdam</p>
   </div>
 </header>
-
+ 
 <div class="route-strip">
   <div class="route-inner">
     <span class="city-pill ams">Amsterdam</span>
@@ -127,9 +130,9 @@
     <span class="route-note">Arrive Aug 27 · Depart Sep 6 at 11:00</span>
   </div>
 </div>
-
+ 
 <main>
-
+ 
   <!-- DAY 1 — AMSTERDAM -->
   <section class="day" style="animation-delay:0.05s">
     <div class="day-header">
@@ -138,48 +141,103 @@
       <span class="day-date">Wed, Aug 27</span>
       <span class="city-tag ams">Amsterdam</span>
     </div>
-    <p class="section-label">Schedule</p>
+ 
+    <!-- BOOKED TICKET BANNER -->
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🎟</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Ticket Confirmed</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Anne Frank House — <span style="color:#1a6e35;">13:45–14:00</span></p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Pragya Pokhrel · 2 × Adult · €16.50 each · Ref: 20250102386685 / 20250102374790</p>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:#1a6e35;text-align:right;white-space:nowrap;">
+        ⚠ No large bags allowed<br>Show on smartphone
+      </div>
+    </div>
+ 
+    <p class="section-label">Minute-by-minute schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>10:20</span>
+        <span class="block-time">10:20<br>arrive</span>
         <div class="block-content">
-          <h3>✈ Arrive at Schiphol (AMS)</h3>
-          <p>Clear customs, collect bags. Sprinter train to Amsterdam Centraal (~17 min, €5.50). Check in or drop bags at hotel — most allow early luggage drop. Grab a coffee and get moving.</p>
-          <div><span class="food-rec"><span class="food-icon">☕</span>Breakfast: Scandinavian Embassy — the city's best specialty coffee</span></div>
+          <h3>✈ Land at Schiphol (AMS)</h3>
+          <p>Clear immigration and collect bags — allow ~45 min. Take the Sprinter from Schiphol Airport station to Amsterdam Centraal (departs every 15 min, ~17 min ride, €5.50). Aim to be at Centraal by <strong>11:30</strong>.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>12:30</span>
+        <span class="block-time">11:30–<br>12:15</span>
         <div class="block-content">
-          <h3>Jordaan, Canals & the Big Highlights</h3>
+          <h3>Hotel Check-In & Freshen Up</h3>
+          <p>Drop bags at hotel (most allow early luggage drop even before full check-in). Freshen up, change, and get your bearings. Hotel should ideally be in the Jordaan or near Museumplein.</p>
+          <div><span class="food-rec"><span class="food-icon">☕</span>Quick breakfast/coffee: Scandinavian Embassy on Frederiksplein — 12 min walk from Centraal</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">12:15–<br>13:30</span>
+        <div class="block-content">
+          <h3>Jordaan Neighbourhood & Canal Walk</h3>
           <ul class="activity-list">
-            <li>Anne Frank House — book timed entry in advance (annefrank.org), absolutely non-negotiable</li>
-            <li>Prinsengracht & Keizersgracht canal walk — the classic Amsterdam scene</li>
-            <li>Rijksmuseum — Rembrandt, Vermeer, Dutch Golden Age; allow 90 min (pre-book)</li>
-            <li>Albert Cuyp Market in De Pijp — stroopwafels, street food, atmosphere</li>
+            <li>Walk Prinsengracht and Keizersgracht — the classic Amsterdam canal scene</li>
+            <li>Pick up a haring (raw herring) from a street cart — the quintessential Amsterdam snack</li>
+            <li>Wander the Jordaan's charming side streets — arrive rested near Prinsengracht 263</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🥩</span>Lunch: Moeders on Rozengracht — Dutch comfort food, 5-min walk to Anne Frank House</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">13:30<br>sharp</span>
+        <div class="block-content">
+          <h3>🎟 Arrive at Anne Frank House — Prinsengracht 29</h3>
+          <p>Your timed entry is <strong>13:45–14:00</strong>. Arrive <strong>no later than 13:30</strong> — there is a short queue even with timed tickets. Have your ticket QR code ready on your phone (no large bags or trolleys — leave them at hotel). The visit takes approximately 60–90 minutes.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">15:00–<br>16:45</span>
+        <div class="block-content">
+          <h3>Rijksmuseum</h3>
+          <ul class="activity-list">
+            <li>15-minute tram or 20-minute walk from Anne Frank House to Museumplein</li>
+            <li>Rembrandt's Night Watch, Vermeer's The Milkmaid, Dutch Golden Age masterworks</li>
+            <li>Allow 90 minutes — focus on highlights, don't try to see everything</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🥐</span>Coffee break: Rijksmuseum café or grab a stroopwafel from Albert Cuyp Market (5-min detour)</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">17:00–<br>18:30</span>
+        <div class="block-content">
+          <h3>De Pijp & Vondelpark Wind-Down</h3>
+          <ul class="activity-list">
+            <li>Albert Cuyp Market — largest outdoor market in Europe, great atmosphere in the late afternoon</li>
+            <li>Brief walk through Vondelpark — decompress after a packed arrival day</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">19:00–<br>21:30</span>
+        <div class="block-content">
+          <h3>Evening Canal Cruise & Dinner</h3>
+          <ul class="activity-list">
+            <li>Evening canal cruise departing ~19:00 — golden-hour light on the grachten is unmissable (book online same day or at dock)</li>
+            <li>Leidseplein square afterwards — café terraces, street performers</li>
           </ul>
           <div>
-            <span class="food-rec"><span class="food-icon">🥩</span>Lunch: Moeders — hearty Dutch comfort food, Jordaan</span>
-            <span class="food-rec"><span class="food-icon">🐟</span>Snack: raw herring at a Haring cart</span>
+            <span class="food-rec"><span class="food-icon">🍽</span>Dinner: De Silveren Spiegel — refined Dutch cuisine in a 1614 canal house</span>
+            <span class="food-rec"><span class="food-icon">🍺</span>Nightcap: Brouwerij 't IJ windmill brewery</span>
           </div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:00</span>
+        <span class="block-time">22:00<br>night</span>
         <div class="block-content">
-          <h3>Canal Cruise & Leidseplein</h3>
-          <ul class="activity-list">
-            <li>Evening canal cruise — golden-hour light on the grachten is unmissable</li>
-            <li>Leidseplein square — café terraces, street performers, great energy</li>
-            <li>Brouwerij 't IJ — windmill craft brewery, a perfect nightcap</li>
-          </ul>
-          <div><span class="food-rec"><span class="food-icon">🍽</span>Dinner: De Silveren Spiegel — refined Dutch cuisine in a 1614 canal house</span></div>
+          <h3>🛏 Early Night — Train at 10:31 Tomorrow</h3>
+          <p>Your Amsterdam → Cologne ICE departs at <strong>10:31</strong>. Aim to be at Amsterdam Centraal by <strong>10:00</strong>. Set an alarm, pack tonight.</p>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> One focused day is exactly enough. Prioritise Anne Frank House + Rijksmuseum + a canal cruise and you'll leave satisfied. Buy an OV-chipkaart for trams and buses.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> The Anne Frank House does not allow large bags — if your hotel can't hold luggage during the visit, use the luggage lockers at Amsterdam Centraal (€4–7). No printing needed for your ticket — the QR code on your phone is sufficient.</p></div>
   </section>
-
+ 
   <!-- DAY 2 — AMSTERDAM → COLOGNE -->
   <section class="day" style="animation-delay:0.1s">
     <div class="day-header">
@@ -188,60 +246,94 @@
       <span class="day-date">Thu, Aug 28</span>
       <span class="city-tag col">Cologne</span>
     </div>
-    <div class="transport">
-      <span class="transport-icon">🚄</span>
-      <div class="transport-details">
-        <p class="transport-route">Amsterdam Centraal → Köln Hauptbahnhof</p>
-        <p class="transport-meta">ICE high-speed train · Book via NS International or DB · depart ~08:30</p>
+ 
+    <!-- BOOKED TRAIN BANNER -->
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🚄</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Train Booked · Eurail + Seat Reservation</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Amsterdam Centraal → Köln Hbf</p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Departs <strong>10:31</strong> · Arrives <strong>13:50</strong> · 3h 19m · 2 travellers · $18.56</p>
       </div>
-      <span class="transport-time">~2 hr 40 min</span>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:#1a6e35;white-space:nowrap;">10:31 → 13:50</div>
     </div>
-    <p class="section-label">Schedule</p>
+ 
+    <p class="section-label">Minute-by-minute schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>08:30</span>
+        <span class="block-time">09:00–<br>10:00</span>
         <div class="block-content">
-          <h3>Depart Amsterdam, Arrive Cologne ~11:10</h3>
-          <p>The Cathedral is literally outside the station exit — you'll see it before you're even through the doors. Drop bags at hotel and walk straight there.</p>
+          <h3>Morning — Hotel Breakfast & Check-Out</h3>
+          <p>Leisurely hotel breakfast. Check out or store bags if hotel allows late luggage. Leave for Amsterdam Centraal by <strong>10:00</strong>.</p>
+          <div><span class="food-rec"><span class="food-icon">☕</span>Or grab a final Dutch coffee and pastry near Centraal before boarding</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>11:30</span>
+        <span class="block-time">10:00<br>platform</span>
+        <div class="block-content">
+          <h3>🚄 Board at Amsterdam Centraal — Platform TBC</h3>
+          <p>Be on the platform by <strong>10:15</strong>. ICE trains to Cologne depart from the international platforms (check departure boards — usually platforms 13–15). Have your Eurail pass and seat reservation ready in the Rail Planner app.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">10:31–<br>13:50</span>
+        <div class="block-content">
+          <h3>Train Journey — 3h 19m</h3>
+          <p>Enjoy the ride through the Dutch and German lowlands. The route passes through Utrecht, Arnhem and Oberhausen before arriving Cologne. Grab a snack from the onboard café car.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">13:50<br>arrive</span>
+        <div class="block-content">
+          <h3>Arrive Köln Hbf — Cathedral Right Outside</h3>
+          <p>Drop bags at hotel (5–10 min walk from the station). The Cologne Cathedral is literally visible the moment you exit — it dominates the entire plaza.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">14:30–<br>17:30</span>
         <div class="block-content">
           <h3>Kölner Dom & Altstadt</h3>
           <ul class="activity-list">
-            <li>Kölner Dom — climb the South Tower (533 steps) for Rhine panoramas</li>
-            <li>Roman-Germanic Museum — ancient mosaics and Roman Cologne</li>
-            <li>Hohenzollern Bridge — love locks and great river views</li>
-            <li>Rhine promenade walk toward the Old Town</li>
+            <li>Kölner Dom interior — free entry, extraordinary Gothic nave; allow 30 min</li>
+            <li>South Tower climb (533 steps, €6) — Rhine panorama from the top; allow 45 min</li>
+            <li>Roman-Germanic Museum next door — ancient mosaics and Roman-era Cologne</li>
+            <li>Hohenzollern Bridge — walk across, admire the love locks, views of the Rhine</li>
           </ul>
-          <div><span class="food-rec"><span class="food-icon">🍺</span>Lunch: Früh am Dom — order Kölsch in traditional 0.2L Stange glasses</span></div>
+          <div><span class="food-rec"><span class="food-icon">🍺</span>Late lunch: Früh am Dom — order Kölsch in traditional 0.2L Stange glasses, replenished automatically until you cover the glass</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>15:30</span>
+        <span class="block-time">17:30–<br>19:00</span>
         <div class="block-content">
           <h3>Museum Ludwig & Belgian Quarter</h3>
           <ul class="activity-list">
-            <li>Museum Ludwig — excellent modern art: Picasso, Warhol, German Expressionism</li>
-            <li>Belgisches Viertel — indie boutiques, street art, lively café culture</li>
+            <li>Museum Ludwig — Picasso, Warhol, German Expressionism (check closing time, usually 18:00)</li>
+            <li>Belgisches Viertel (Belgian Quarter) — indie boutiques, street art, excellent café culture</li>
           </ul>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:00</span>
+        <span class="block-time">19:00–<br>21:30</span>
         <div class="block-content">
-          <h3>Rhine Sunset & Dinner</h3>
+          <h3>Rhine Sunset Walk & Dinner</h3>
           <ul class="activity-list">
-            <li>Hohenzollern Bridge at dusk — beautiful light on the water</li>
+            <li>Back over Hohenzollern Bridge at dusk — the cathedral lit against a golden sky</li>
+            <li>Rhine promenade stroll south toward the Altstadt</li>
           </ul>
-          <div><span class="food-rec"><span class="food-icon">🥩</span>Dinner: Em Krützche — Rhine-view restaurant, try Himmel un Ääd (potato & blood sausage)</span></div>
+          <div><span class="food-rec"><span class="food-icon">🥩</span>Dinner: Em Krützche — Rhine-view tables, try Himmel un Ääd (potato & blood sausage, classic Cologne dish)</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">22:00<br>night</span>
+        <div class="block-content">
+          <h3>🛏 Early Night — Two Trains Tomorrow</h3>
+          <p>Tomorrow is a travel day with two trains: <strong>Cologne → Basel (10:54)</strong> and <strong>Basel → Interlaken (15:30)</strong>. Pack tonight and set a morning alarm.</p>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> The Cologne Card gives unlimited transit + museum discounts. Grab one at the station tourist office on arrival.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> Cologne Cathedral's South Tower closes at 18:00 in summer — make sure to arrive and queue by 16:30 at the latest to be sure of entry. The Cologne Card (transit + museums) is available at the station tourist office but with only one afternoon here, it may not be worth the cost.</p></div>
   </section>
-
+ 
   <!-- DAY 3 — COLOGNE → INTERLAKEN -->
   <section class="day" style="animation-delay:0.15s">
     <div class="day-header">
@@ -250,47 +342,109 @@
       <span class="day-date">Fri, Aug 29</span>
       <span class="city-tag zur">Swiss Alps</span>
     </div>
-    <div class="transport">
-      <span class="transport-icon">🚄</span>
-      <div class="transport-details">
-        <p class="transport-route">Köln Hbf → Basel → Interlaken Ost</p>
-        <p class="transport-meta">ICE to Basel, then SBB InterCity through the Bernese Oberland · Book via DB + sbb.ch · depart ~08:00</p>
+ 
+    <!-- BOOKED TRAINS BANNER -->
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🚄</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Train 1 of 2 · Eurail — Free (uses 1 travel day)</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Köln Hbf → Basel SBB</p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Departs <strong>10:54</strong> · Arrives <strong>14:48</strong> · 3h 54m · 2 travellers</p>
       </div>
-      <span class="transport-time">~5 hr 30 min</span>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:#1a6e35;white-space:nowrap;">10:54 → 14:48</div>
     </div>
-    <p class="section-label">Schedule</p>
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🚄</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Train 2 of 2 · Eurail — Free (same travel day)</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Basel SBB → Interlaken Ost</p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Departs <strong>15:30</strong> · Arrives <strong>17:28</strong> · 1h 58m · 42-min layover in Basel</p>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:#1a6e35;white-space:nowrap;">15:30 → 17:28</div>
+    </div>
+ 
+    <!-- EURAIL PASS DAY TRACKER -->
+    <div style="background:var(--cream);border:1px solid var(--light-rule);border-radius:6px;padding:12px 18px;margin-bottom:24px;">
+      <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">7-Day Eurail Pass — Travel Day Usage</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="background:var(--zur);color:white;font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 1 ✓ Aug 28 — AMS→Cologne</span>
+        <span style="background:var(--zur);color:white;font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 2 ✓ Aug 29 — Cologne→Interlaken</span>
+        <span style="background:var(--ink);color:rgba(245,240,232,0.4);font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 3 · Aug 30 — reserved</span>
+        <span style="background:var(--ink);color:rgba(245,240,232,0.4);font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 4 · Aug 31 — reserved</span>
+        <span style="background:var(--ink);color:rgba(245,240,232,0.4);font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 5 · Sep 1 — Interlaken→Paris</span>
+        <span style="background:var(--ink);color:rgba(245,240,232,0.4);font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 6 · Sep 4 — Paris→Brussels</span>
+        <span style="background:var(--ink);color:rgba(245,240,232,0.4);font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:2px;">Day 7 · Sep 5 — Brussels→AMS</span>
+      </div>
+      <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:8px;">⚡ Note: Mountain discounts (Jungfraujoch, Schilthorn, Harder Kulm) do NOT consume a travel day — just show your pass at the ticket window.</p>
+    </div>
+ 
+    <p class="section-label">Minute-by-minute schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>08:00</span>
+        <span class="block-time">09:30–<br>10:40</span>
         <div class="block-content">
-          <h3>Depart Cologne</h3>
-          <p>The leg from Basel onward is one of Europe's most scenic train rides — you enter the Bernese Oberland and the Alps unfold around you. Arrive Interlaken Ost ~13:30. Interlaken is your mountain base for three nights.</p>
+          <h3>Cologne — Breakfast & Check-Out</h3>
+          <p>Hotel breakfast, pack and check out. Walk to Köln Hbf (10 min from most central hotels). Board by 10:40.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>14:00</span>
+        <span class="block-time">10:54<br>depart</span>
         <div class="block-content">
-          <h3>Interlaken & Lake Thun</h3>
+          <h3>🚄 Köln Hbf → Basel SBB — Eurail free</h3>
+          <p>Scenic Rhine Valley route via Bonn and Koblenz. Watch the castles go by. Arrive Basel at <strong>14:48</strong>.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">14:48–<br>15:25</span>
+        <div class="block-content">
+          <h3>Basel SBB — 42-Minute Layover</h3>
+          <p>Stay inside the station. Grab a snack from the station bakery. Find the SBB departure board and locate <strong>15:30 → Interlaken Ost</strong>. Be on the platform by 15:15.</p>
+          <div><span class="food-rec"><span class="food-icon">🥪</span>Station bakery or Migros in Basel SBB — pick up snacks for the scenic leg</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">15:30–<br>17:28</span>
+        <div class="block-content">
+          <h3>🚄 Basel → Interlaken Ost — the scenic reward</h3>
+          <p>The finest train ride of the trip. Through Bern and into the Bernese Oberland — by Spiez the Alps fill every window. Arrive Interlaken Ost <strong>17:28</strong>.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">17:30–<br>18:30</span>
+        <div class="block-content">
+          <h3>Arrive Interlaken — Check In & Orientate</h3>
           <ul class="activity-list">
-            <li>Höheweg promenade — the famous strip between Lakes Thun and Brienz with the Eiger, Mönch and Jungfrau directly ahead</li>
-            <li>Boat cruise on Lake Thun — glassy water, Alpine reflections, castle silhouettes</li>
-            <li>Spiez village (optional short stop) — beautiful lakeside castle</li>
+            <li>Hotel check-in (book near Interlaken Ost station for convenience)</li>
+            <li>Walk the Höheweg promenade — the Eiger, Mönch and Jungfrau are directly ahead</li>
+            <li>Familiarise yourself with the area for tomorrow's early start</li>
           </ul>
-          <div><span class="food-rec"><span class="food-icon">🧀</span>Lunch: Käseschnitte (Swiss cheese toast) at a lakeside café</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:00</span>
+        <span class="block-time">18:30–<br>20:30</span>
         <div class="block-content">
-          <h3>Settle In — Plan the Alps Days</h3>
-          <p>Easy first evening. Check the Jungfraujoch webcam (jungfrau.ch), review tomorrow's route, set an early alarm, and rest. The mountains demand early starts.</p>
-          <div><span class="food-rec"><span class="food-icon">🍷</span>Dinner: Restaurant Schuh — elegant terrace overlooking the Höheweg</span></div>
+          <h3>🏔 Harder Kulm — Sunset Viewpoint <span style="font-family:'DM Mono',monospace;font-size:10px;background:#faeeda;color:#854f0b;padding:2px 7px;border-radius:3px;margin-left:6px;">25% off w/ Eurail</span></h3>
+          <ul class="activity-list">
+            <li>Funicular departs from near Interlaken Ost — 8-minute ride to 1,322 m</li>
+            <li>Pay at the window: full CHF 44 → with Eurail pass: <strong>CHF ~33</strong> per person (just show your pass)</li>
+            <li>Two-Lakes Bridge viewpoint — Lakes Thun and Brienz spread below, Jungfrau behind</li>
+            <li>Perfect acclimatisation before the big summit days — last funicular down ~21:00 in August</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🍷</span>Drink at the Harder Kulm panorama restaurant while the sun sets over the Alps</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">21:00–<br>22:00</span>
+        <div class="block-content">
+          <h3>Dinner & Early Night</h3>
+          <p>Tomorrow is Jungfraujoch — you need to leave at <strong>07:00</strong>. Light dinner and pack your bag (sunscreen, warm layer, camera, Eurail pass).</p>
+          <div><span class="food-rec"><span class="food-icon">🫕</span>Rösti or raclette at a local restaurant — CHF 20–30 · keep it light</span></div>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> The Jungfrau Travel Pass covers regional trains, boats and cable cars across the region — compare it against point-to-point tickets for your specific days, as it can save a substantial amount.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> Tonight, download the <strong>Rail Planner app</strong> (Eurail's official app) and add Aug 29 as a travel day if not already done. For Harder Kulm, no booking needed — just show up and show your Eurail pass at the ticket window for the 25% discount.</p></div>
   </section>
-
+ 
   <!-- DAY 4 — JUNGFRAUJOCH -->
   <section class="day" style="animation-delay:0.2s">
     <div class="day-header">
@@ -299,56 +453,129 @@
       <span class="day-date">Sat, Aug 30</span>
       <span class="city-tag zur">Swiss Alps</span>
     </div>
-    <p class="section-label">Schedule</p>
+ 
+    <!-- EURAIL COST BREAKDOWN -->
+    <div style="background:var(--cream);border:1px solid var(--light-rule);border-radius:6px;padding:16px 20px;margin-bottom:24px;">
+      <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Today's Eurail Benefits — What You Pay vs Full Price</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Interlaken→Grindelwald</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">FREE</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">BLS train · Eurail covered</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Jungfraujoch return</p>
+          <p style="font-size:1rem;font-weight:600;color:#b85c38;">CHF ~196 <span style="font-size:11px;font-weight:400;color:var(--muted);">/ person</span></p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">25% off · full CHF 261</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Seat reservation</p>
+          <p style="font-size:1rem;font-weight:600;color:#b85c38;">CHF 10 <span style="font-size:11px;font-weight:400;color:var(--muted);">/ person</span></p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">Mandatory Aug–Oct</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Kleine Scheidegg trains</p>
+          <p style="font-size:1rem;font-weight:600;color:#b85c38;">25% off</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">Included in Jungfraujoch ticket</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Descent via Lauterbrunnen</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">FREE</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">BLS + SBB trains · Eurail covered</p>
+        </div>
+        <div style="background:#e8f4ea;border:1px solid #3a9e5a;border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:#1a6e35;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Total saving / person</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">~CHF 65</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">vs buying without Eurail</p>
+        </div>
+      </div>
+      <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:10px;">⚡ No Eurail travel day consumed today — mountain discounts are a pass benefit, not a travel day use.</p>
+    </div>
+ 
+    <p class="section-label">Minute-by-minute schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>07:00</span>
+        <span class="block-time">06:00–<br>06:45</span>
         <div class="block-content">
-          <h3>Early Departure — First Trains Are Best</h3>
-          <p>Train from Interlaken Ost → Grindelwald or Lauterbrunnen → Kleine Scheidegg → Jungfraujoch. The rack railway through the Eiger tunnel is an experience on its own. Allow 2.5 hours each way.</p>
-          <ul class="activity-list">
-            <li>Target the ~07:35 departure — best visibility, fewest crowds, best light</li>
-            <li>Book at jungfrau.ch in advance — CHF 145–215 depending on season and pass</li>
-          </ul>
-          <div><span class="food-rec"><span class="food-icon">☕</span>Breakfast on the train or at Kleine Scheidegg station</span></div>
+          <h3>Rise Early — Pack for the Summit</h3>
+          <p>Breakfast at hotel or grab supplies from a supermarket the night before. Pack: sunscreen (UV is intense at altitude), sunglasses, a warm mid-layer (it's 0–5°C at the top even in August), and your Eurail pass. Check the Jungfraujoch webcam — if summit is clouded over, swap with Day 5 (Schilthorn is at lower altitude and often clearer).</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Late Morn<br>10:00</span>
+        <span class="block-time">07:00<br>depart</span>
         <div class="block-content">
-          <h3>At the Summit (3,454 m)</h3>
-          <ul class="activity-list">
-            <li>Sphinx Observatory — 360° panorama over the Aletsch Glacier, the longest glacier in the Alps</li>
-            <li>Snow Fun Park — sledging and snowball fights in August, extraordinary novelty</li>
-            <li>Ice Palace — carved glacier tunnels with ice sculptures</li>
-            <li>Plateau Trail — walking path along the snow with views of peaks and ice in all directions</li>
-          </ul>
-          <div><span class="food-rec"><span class="food-icon">🍜</span>Lunch: Crystal Restaurant at the top — pricey but the setting is extraordinary</span></div>
+          <h3>🚄 Interlaken Ost → Grindelwald Terminal — Eurail free</h3>
+          <p>BLS train — show your Eurail pass, no ticket purchase needed. ~35-minute scenic ride through the valley. Arrive Grindelwald Terminal ~07:35.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>14:00</span>
+        <span class="block-time">07:45–<br>09:30</span>
         <div class="block-content">
-          <h3>Descent via Grindelwald</h3>
+          <h3>🏔 Eiger Express Gondola + Jungfraubahn to Summit</h3>
           <ul class="activity-list">
-            <li>Return via Grindelwald — gorgeous village directly under the Eiger north face</li>
-            <li>Stroll the village, pick up local cheese, browse the shops</li>
-            <li>Grindelwald First cable car (optional, extra fee) — clifftop walks and mountain cart rides</li>
+            <li>At Grindelwald Terminal: present your Eurail pass at the Jungfraujoch ticket window — pay <strong>CHF ~196/person</strong> (25% off the CHF 261 full price) + CHF 10 seat reservation</li>
+            <li>Eiger Express gondola — 15-min cable car flight across the Eiger's north face to Eigergletscher</li>
+            <li>Jungfraubahn rack railway through the tunnel bored inside the Eiger — stops at Eigerwand and Eismeer viewpoints (5 min each)</li>
+            <li>Arrive Jungfraujoch station at 3,454 m — Top of Europe</li>
           </ul>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:30</span>
+        <span class="block-time">09:30–<br>13:00</span>
         <div class="block-content">
-          <h3>Return to Interlaken</h3>
-          <p>Back in town by evening. Rest well — Schilthorn tomorrow is another big day.</p>
-          <div><span class="food-rec"><span class="food-icon">🥩</span>Dinner: Laterne Restaurant — warm, unpretentious Swiss mountain food</span></div>
+          <h3>At the Summit — 3,454 m</h3>
+          <ul class="activity-list">
+            <li>Sphinx Observatory terrace — 360° panorama: Aletsch Glacier (longest in the Alps, 23 km), peaks of the Bernese Oberland</li>
+            <li>Ice Palace — carved glacier caves with ice sculptures; ethereally lit and free once you're up</li>
+            <li>Snow Fun Park — sledging, snow tubing, and a zip line in August; genuinely extraordinary novelty</li>
+            <li>Plateau Trail — short walking path along the snow field with unobstructed glacier views</li>
+            <li>Sphinxterrace viewing deck — the highest viewpoint, accessible by lift from inside</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🍜</span>Lunch: Crystal Restaurant at the summit — pricey but the setting is once-in-a-lifetime · or bring your own packed lunch and eat on the Plateau</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">13:00–<br>15:00</span>
+        <div class="block-content">
+          <h3>Descent via Kleine Scheidegg → Lauterbrunnen — Eurail free</h3>
+          <ul class="activity-list">
+            <li>Take the Jungfraubahn back down to Kleine Scheidegg (the mountain saddle with views of all three peaks)</li>
+            <li>Change train at Kleine Scheidegg — descend via <strong>Wengen and Lauterbrunnen</strong> (different valley from the ascent — see both sides of the mountain)</li>
+            <li>All trains from Kleine Scheidegg down are <strong>Eurail covered — just show your pass, no ticket needed</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">15:00–<br>17:00</span>
+        <div class="block-content">
+          <h3>Lauterbrunnen Valley Afternoon — Free</h3>
+          <ul class="activity-list">
+            <li>Staubbach Falls — 300 m waterfall cascading straight off the cliff face into the valley; free, walk right up to it</li>
+            <li>Walk the valley floor trail — 72 waterfalls, wildflowers, towering limestone walls on both sides</li>
+            <li>Lauterbrunnen village itself is picturesque and relaxed after the summit intensity</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">☕</span>Coffee stop: Airtime Café in Lauterbrunnen — good coffee, valley views</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">17:00–<br>17:30</span>
+        <div class="block-content">
+          <h3>🚄 Lauterbrunnen → Interlaken Ost — Eurail free</h3>
+          <p>BLS train, ~20 minutes. Show Eurail pass. Back in Interlaken by 17:30.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">18:00–<br>21:00</span>
+        <div class="block-content">
+          <h3>Rest & Dinner</h3>
+          <p>You've been at altitude all day — rest, hydrate, and eat well. Early night: Schilthorn tomorrow departs at 08:00.</p>
+          <div><span class="food-rec"><span class="food-icon">🫕</span>Dinner: Fondue at Restaurant Tälli or pick up groceries from Coop for a quiet night in</span></div>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> Check the Jungfraujoch live webcam the morning you go. If the summit is socked in with cloud, swap Day 4 and Day 5 — Schilthorn at a lower elevation often has better visibility on overcast days.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> Book your Jungfraujoch ticket online at jungfrau.ch before the trip — the 25% Eurail discount is applied at the ticket window when you show your pass, but having a time-slot reservation locked in means you won't miss the morning gondola in peak August season. The first departure from Grindelwald fills up fast.</p></div>
   </section>
-
+ 
   <!-- DAY 5 — SCHILTHORN + LAUTERBRUNNEN -->
   <section class="day" style="animation-delay:0.25s">
     <div class="day-header">
@@ -357,58 +584,131 @@
       <span class="day-date">Sun, Aug 31</span>
       <span class="city-tag zur">Swiss Alps</span>
     </div>
-    <p class="section-label">Schedule</p>
+ 
+    <!-- EURAIL COST BREAKDOWN -->
+    <div style="background:var(--cream);border:1px solid var(--light-rule);border-radius:6px;padding:16px 20px;margin-bottom:24px;">
+      <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Today's Eurail Benefits — What You Pay vs Full Price</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Interlaken→Lauterbrunnen</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">FREE</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">BLS train · Eurail covered</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">PostBus to Stechelberg</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">FREE</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">PostBus · Eurail covered</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Schilthorn cable car</p>
+          <p style="font-size:1rem;font-weight:600;color:#b85c38;">CHF ~86 <span style="font-size:11px;font-weight:400;color:var(--muted);">/ person</span></p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">25% off · full CHF 115</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Trümmelbach Falls</p>
+          <p style="font-size:1rem;font-weight:600;color:#b85c38;">CHF 14 <span style="font-size:11px;font-weight:400;color:var(--muted);">/ person</span></p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">No discount — pay at door</p>
+        </div>
+        <div style="background:var(--paper);border:1px solid var(--light-rule);border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Mürren village access</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">FREE</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">Grütschalp cable + train · Eurail covered</p>
+        </div>
+        <div style="background:#e8f4ea;border:1px solid #3a9e5a;border-radius:4px;padding:10px 12px;">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:#1a6e35;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Total saving / person</p>
+          <p style="font-size:1rem;font-weight:600;color:#1a6e35;">~CHF 29</p>
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);">vs full price on Schilthorn</p>
+        </div>
+      </div>
+      <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:10px;">⚡ No Eurail travel day consumed today — discounts are a pass benefit. Tomorrow's Interlaken→Paris uses travel Day 5.</p>
+    </div>
+ 
+    <p class="section-label">Minute-by-minute schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>08:00</span>
+        <span class="block-time">07:30–<br>08:00</span>
         <div class="block-content">
-          <h3>Lauterbrunnen Valley</h3>
-          <ul class="activity-list">
-            <li>Train from Interlaken Ost to Lauterbrunnen (~20 min)</li>
-            <li>Staubbach Falls — 300 m waterfall plunging straight off the cliff into the valley, free and breathtaking</li>
-            <li>Trümmelbach Falls — glacial meltwater carving through the mountain interior (CHF ~14 at the door)</li>
-            <li>Walk the valley floor trail between waterfalls — the valley has 72 of them</li>
-          </ul>
-          <div><span class="food-rec"><span class="food-icon">🥐</span>Breakfast: Airtime Café, Lauterbrunnen — great views, good coffee</span></div>
+          <h3>Breakfast & Depart for Lauterbrunnen</h3>
+          <p>Early but not as brutal as yesterday. Quick hotel breakfast. Walk to Interlaken Ost station, board 08:00 BLS train to Lauterbrunnen. Show Eurail pass — free.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Midday<br>11:30</span>
+        <span class="block-time">08:00–<br>08:22</span>
         <div class="block-content">
-          <h3>Schilthorn — Piz Gloria (2,970 m)</h3>
-          <ul class="activity-list">
-            <li>Cable car from Stechelberg via Gimmelwald and Mürren to the summit</li>
-            <li>Piz Gloria revolving restaurant — filming location for the 1969 James Bond film On Her Majesty's Secret Service</li>
-            <li>Panorama: Eiger, Mönch, Jungfrau, and on clear days all the way to Mont Blanc and the Black Forest</li>
-            <li>James Bond World exhibition — fun interactive displays about the filming</li>
-          </ul>
-          <div><span class="food-rec"><span class="food-icon">🍽</span>Lunch: Piz Gloria rotating restaurant — one slow revolution while you eat</span></div>
+          <h3>🚄 Interlaken Ost → Lauterbrunnen — Eurail free</h3>
+          <p>22-minute BLS train. Show your Eurail pass at the gate. Arrive Lauterbrunnen 08:22.</p>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>15:00</span>
+        <span class="block-time">08:30–<br>09:00</span>
         <div class="block-content">
-          <h3>Mürren — Car-Free Clifftop Village</h3>
+          <h3>🚌 PostBus: Lauterbrunnen → Stechelberg — Eurail free</h3>
+          <p>The yellow PostBus runs every 30 minutes from outside Lauterbrunnen station to Stechelberg (the base cable car station for Schilthorn). Show Eurail pass — fully covered, no ticket needed. ~15-minute ride through the waterfall valley.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">09:00–<br>12:30</span>
+        <div class="block-content">
+          <h3>🚡 Schilthorn Cable Car — 25% off with Eurail</h3>
           <ul class="activity-list">
-            <li>Stop at Mürren on the descent — one of Switzerland's most beautiful villages, clinging to a cliff at 1,650 m, no cars ever</li>
-            <li>Northface Trail — a 4 km walk with the Eiger's legendary north face filling the entire skyline</li>
-            <li>Sit on a bench, breathe the mountain air — this is the Switzerland you came for</li>
-            <li>Optional: walk from Mürren down to Gimmelwald (30 min, one of Europe's great short hikes)</li>
+            <li>At Stechelberg base station: show Eurail pass — pay <strong>CHF ~86/person return</strong> (25% off full CHF 115)</li>
+            <li>Four-stage cable car: Stechelberg → Gimmelwald → Mürren → Birg → Piz Gloria (Schilthorn summit, 2,970 m)</li>
+            <li><strong>Stop at Birg</strong> on the way up — the Thrill Walk (a cliff-face walkway with glass floor) is free and spectacular</li>
+            <li>Piz Gloria revolving restaurant — filmed the 1969 James Bond film; one full rotation takes ~55 min</li>
+            <li>James Bond World exhibition — interactive displays, film props, great views from the panorama deck</li>
+            <li>360° panorama: Eiger, Mönch, Jungfrau, and on clear days Mont Blanc and the Black Forest</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🍽</span>Lunch: Piz Gloria revolving restaurant — eat one rotation, then descend · budget CHF 30–45</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">12:30–<br>14:30</span>
+        <div class="block-content">
+          <h3>Mürren — Car-Free Clifftop Village — Eurail free</h3>
+          <ul class="activity-list">
+            <li>Stop at Mürren on the descent (exit at Mürren cable car station, not Stechelberg)</li>
+            <li>One of Switzerland's most beautiful villages — 1,650 m, no roads, no cars, ever</li>
+            <li>Northface Trail — 4 km walk with the Eiger's legendary north face filling the entire skyline; free, no ticket</li>
+            <li>Walk from Mürren down to Gimmelwald (~30 min downhill) if energy allows — arguably the best short hike in the Oberland</li>
+            <li>To return to Interlaken from Mürren: cable car to Grütschalp (Eurail covered) → BLS train to Interlaken (Eurail covered)</li>
           </ul>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Evening<br>19:00</span>
+        <span class="block-time">14:30–<br>16:00</span>
         <div class="block-content">
-          <h3>Final Alps Evening in Interlaken</h3>
-          <p>Return to Interlaken. Pack for Paris tomorrow. If skies are clear, sit outside — watch the Eiger and Jungfrau turn pink at alpenglow. It's a moment you'll remember.</p>
-          <div><span class="food-rec"><span class="food-icon">🫕</span>Farewell fondue: Restaurant Tälli, Interlaken — end on a classic</span></div>
+          <h3>💧 Trümmelbach Falls — CHF 14 (no Eurail discount)</h3>
+          <ul class="activity-list">
+            <li>On the way back from Mürren, stop at Trümmelbach (accessible by PostBus — Eurail covered)</li>
+            <li>10 glacial waterfalls carving through the inside of the mountain — a lift takes you into the gorge</li>
+            <li>Thunderously powerful, dramatically lit, and completely unlike anything else on the trip</li>
+            <li>Pay at door: CHF 14/person — no Eurail discount but absolutely worth it</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">16:30–<br>17:00</span>
+        <div class="block-content">
+          <h3>🚄 Lauterbrunnen → Interlaken Ost — Eurail free</h3>
+          <p>BLS train, 20 minutes. Show Eurail pass. Back in Interlaken by 17:00.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">17:00–<br>21:00</span>
+        <div class="block-content">
+          <h3>Final Alps Evening — Pack for Paris</h3>
+          <ul class="activity-list">
+            <li>If skies are clear: sit on the Höheweg with a beer and watch alpenglow turn the Jungfrau pink — unforgettable last image</li>
+            <li>Pack tonight — departure train tomorrow at 10:59, aim for Interlaken Ost by 10:40</li>
+            <li>Pick up Swiss chocolate from Coop for friends back home</li>
+          </ul>
+          <div><span class="food-rec"><span class="food-icon">🫕</span>Farewell fondue: Restaurant Schuh or Zum Bären — end Switzerland on a classic</span></div>
         </div>
       </div>
     </div>
-    <div class="tip"><p><strong>Tip:</strong> August is peak paragliding season in Interlaken — if that's on your bucket list, operators in Lauterbrunnen can arrange tandem jumps with landing in the Interlaken valley. Unforgettable views on the way down.</p></div>
+    <div class="tip"><p><strong>Tip:</strong> For Schilthorn, no advance booking required — just show up at Stechelberg and show your Eurail pass at the ticket window for the 25% discount. However, arrive by 09:00 in August as morning cable cars fill up with day-trippers. Mürren itself is free to walk around — the cable car from Grütschalp to Mürren is Eurail-covered so there's no extra charge to enter the village.</p></div>
   </section>
-
+ 
   <!-- DAY 6 — INTERLAKEN → PARIS -->
   <section class="day" style="animation-delay:0.3s">
     <div class="day-header">
@@ -417,25 +717,59 @@
       <span class="day-date">Mon, Sep 1</span>
       <span class="city-tag par">Paris</span>
     </div>
-    <div class="transport">
-      <span class="transport-icon">🚄</span>
-      <div class="transport-details">
-        <p class="transport-route">Interlaken Ost → Bern → Paris Gare de Lyon</p>
-        <p class="transport-meta">SBB IC to Bern, then TGV Lyria · Book via sbb.ch + SNCF Connect · depart ~08:00</p>
+    <!-- BOOKED TRAINS BANNER -->
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🚄</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Train 1 of 2 Booked · Eurail + Seat Reservation</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Interlaken Ost → Basel SBB</p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Departs <strong>10:59</strong> · Arrives <strong>13:00</strong> · 2h 1m · 2 travellers · $18.56</p>
       </div>
-      <span class="transport-time">~5 hr 30 min</span>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:#1a6e35;white-space:nowrap;">10:59 → 13:00</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🚄</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Train 2 of 2 Booked · Eurail + Seat Reservation</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Basel SBB → Paris Gare de Lyon (TGV Lyria)</p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Departs <strong>14:34</strong> · Arrives <strong>17:38</strong> · 3h 4m · 2 travellers · $71.92 · <strong>1h 34m layover in Basel</strong></p>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:#1a6e35;white-space:nowrap;">14:34 → 17:38</div>
     </div>
     <p class="section-label">Schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>08:00</span>
+        <span class="block-time">08:30–<br>10:45</span>
         <div class="block-content">
-          <h3>Depart Interlaken</h3>
-          <p>Train to Bern (~50 min), connect to TGV Lyria through the Jura to Paris Gare de Lyon. Arrive ~13:30. Check in, freshen up.</p>
+          <h3>Final Alps Morning — Last Interlaken Moments</h3>
+          <p>One last look at the Eiger from the Höheweg. Breakfast, check out, and be at Interlaken Ost station by <strong>10:45</strong>.</p>
+          <div><span class="food-rec"><span class="food-icon">🥐</span>Final Swiss breakfast: Bakery on the Höheweg promenade — eat with the Alps in front of you</span></div>
         </div>
       </div>
       <div class="block">
-        <span class="block-time">Afternoon<br>14:30</span>
+        <span class="block-time">10:59<br>depart</span>
+        <div class="block-content">
+          <h3>🚄 Interlaken Ost → Basel SBB · 10:59</h3>
+          <p>Scenic descent through Bern. Arrive Basel SBB at <strong>13:00</strong>. You have a generous <strong>1h 34m layover</strong> — enough to leave the station briefly and walk to Basel's famous Mittlere Brücke over the Rhine (10-min walk) or simply eat a proper lunch at the station.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">13:00–<br>14:20</span>
+        <div class="block-content">
+          <h3>Basel Layover — Lunch & Relax</h3>
+          <p>Comfortable layover. Basel SBB station has good food options. Be on the TGV Lyria platform by <strong>14:15</strong> — international TGV trains close doors a few minutes early.</p>
+          <div><span class="food-rec"><span class="food-icon">🍱</span>Lunch: Holy Cow! burger bar or Tibits vegetarian buffet, both inside Basel SBB</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">14:34–<br>17:38</span>
+        <div class="block-content">
+          <h3>🚄 Basel SBB → Paris Gare de Lyon · TGV Lyria · 14:34</h3>
+          <p>3h 4m through the Jura and Burgundy. Arrive Paris Gare de Lyon at <strong>17:38</strong>. Take the RER D or Line 14 metro to your hotel area. Check in, freshen up.</p>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">18:30–<br>20:00</span>
         <div class="block-content">
           <h3>Left Bank First Impressions</h3>
           <ul class="activity-list">
@@ -462,7 +796,7 @@
       </div>
     </div>
   </section>
-
+ 
   <!-- DAY 7 — PARIS MUSEUMS -->
   <section class="day" style="animation-delay:0.35s">
     <div class="day-header">
@@ -512,7 +846,7 @@
     </div>
     <div class="tip"><p><strong>Tip:</strong> The Paris Museum Pass (2 or 4 days) covers the Louvre, Orsay, Versailles, and 50+ sites — great value if you're doing multiple museum days.</p></div>
   </section>
-
+ 
   <!-- DAY 8 — VERSAILLES + MARAIS -->
   <section class="day" style="animation-delay:0.4s">
     <div class="day-header">
@@ -565,7 +899,7 @@
       </div>
     </div>
   </section>
-
+ 
   <!-- DAY 9 — PARIS → BRUSSELS -->
   <section class="day" style="animation-delay:0.45s">
     <div class="day-header">
@@ -574,21 +908,31 @@
       <span class="day-date">Thu, Sep 4</span>
       <span class="city-tag bru">Brussels</span>
     </div>
-    <div class="transport">
-      <span class="transport-icon">🚄</span>
-      <div class="transport-details">
-        <p class="transport-route">Paris Gare du Nord → Bruxelles-Midi</p>
-        <p class="transport-meta">Thalys high-speed · Book via thalys.com or Rail Europe · depart ~10:00</p>
+    <!-- BOOKED TRAIN BANNER -->
+    <div style="background:linear-gradient(135deg,#e8f4ea,#d6edd9);border:1.5px solid #3a9e5a;border-radius:6px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">🚄</span>
+      <div style="flex:1;">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a6e35;margin-bottom:3px;">Train Booked · Eurail + Seat Reservation</p>
+        <p style="font-size:0.95rem;font-weight:600;color:#1a1714;">Paris Nord → Bruxelles-Midi</p>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;color:#5a5048;margin-top:2px;">Departs <strong>08:18</strong> · Arrives <strong>11:21</strong> · 3h 3m · 2 travellers · $27.84 · Note: earlier than previously planned!</p>
       </div>
-      <span class="transport-time">~1 hr 25 min</span>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:#1a6e35;white-space:nowrap;">08:18 → 11:21</div>
     </div>
     <p class="section-label">Schedule</p>
     <div class="blocks">
       <div class="block">
-        <span class="block-time">Morning<br>10:00</span>
+        <span class="block-time">06:30–<br>07:45</span>
         <div class="block-content">
-          <h3>Relaxed Paris Departure</h3>
-          <p>Final croissant, board the Thalys. Arrive Brussels Midi by ~12:00. Drop bags and walk 10 minutes to Grand-Place — start immediately.</p>
+          <h3>⚠ Early Morning — Depart at 08:18</h3>
+          <p>This is an earlier departure than originally planned — <strong>08:18 from Paris Gare du Nord</strong>. Set your alarm for 06:30. Quick breakfast at the hotel or grab a pain au chocolat from a boulangerie en route. Be at Gare du Nord (international departures, 1st floor) by <strong>07:45</strong> — Thalys/Eurostar requires check-in 30 min before departure.</p>
+          <div><span class="food-rec"><span class="food-icon">🥐</span>Or grab coffee and a croissant inside Gare du Nord — several cafés open from 06:00</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="block-time">08:18–<br>11:21</span>
+        <div class="block-content">
+          <h3>🚄 Paris Nord → Bruxelles-Midi · 08:18</h3>
+          <p>3h 3m. Arrive Brussels at <strong>11:21</strong>. Drop bags at hotel (Grand-Place is 10 min walk from Bruxelles-Midi). You now have a full day in Brussels rather than half — enjoy the extra time!</p>
         </div>
       </div>
       <div class="block">
@@ -625,7 +969,7 @@
     </div>
     <div class="tip"><p><strong>Tip:</strong> Get a Liège waffle (dense, caramelised pearl sugar) from a street stand — not the flat Brussels kind sold to tourists. It's one of the best things you'll eat on this entire trip.</p></div>
   </section>
-
+ 
   <!-- DAY 10 — BRUSSELS → AMSTERDAM + DEPARTURE -->
   <section class="day" style="animation-delay:0.5s">
     <div class="day-header">
@@ -697,19 +1041,19 @@
     </div>
     <div class="tip"><p><strong>Tip:</strong> Schiphol has a Rijksmuseum annex inside the terminal (airside, past security) — a perfect parting gift if you clear security with time to spare.</p></div>
   </section>
-
+ 
 </main>
-
+ 
 <footer>
   <p>10 Days · 5 Cities · 3 Alpine Peaks · Aug 27 – Sep 6 &nbsp;·&nbsp; Amsterdam Return</p>
 </footer>
-
+ 
 <!-- FLOATING BUTTON -->
 <button class="fab" onclick="toggleBooking()">
   <span>📋</span>
   <span id="fab-label">Booking Tracker</span>
 </button>
-
+ 
 <!-- BOOKING OVERLAY -->
 <div id="booking-overlay" class="booking-overlay" aria-hidden="true">
   <div class="booking-panel">
@@ -746,12 +1090,12 @@
             </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Anne Frank House</span></label>
+              <label class="ck"><input type="checkbox" checked><span>Anne Frank House</span></label>
               <label class="ck"><input type="checkbox"><span>Rijksmuseum</span></label>
               <label class="ck"><input type="checkbox"><span>Canal cruise</span></label>
             </td>
           </tr>
-
+ 
           <tr class="shdr"><td colspan="6">Cologne</td></tr>
           <tr>
             <td><span class="ctag c">Cologne</span><div class="dl">Aug 28 — Thu</div><div class="ds">Day 2 · Travel day</div></td>
@@ -764,11 +1108,11 @@
             </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train AMS→Cologne</span></label>
+              <label class="ck"><input type="checkbox" checked><span>Train AMS→Cologne</span></label>
               <label class="ck"><input type="checkbox"><span>Museum Ludwig</span></label>
             </td>
           </tr>
-
+ 
           <tr class="shdr"><td colspan="6">Swiss Alps — Interlaken (3-night base)</td></tr>
           <tr>
             <td><span class="ctag z">Swiss Alps</span><div class="dl">Aug 29 — Fri</div><div class="ds">Day 3 · Travel day</div></td>
@@ -780,7 +1124,7 @@
             </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel (3 nights)</span></label>
-              <label class="ck"><input type="checkbox"><span>Train Cologne→Interlaken</span></label>
+              <label class="ck"><input type="checkbox" checked><span>Train Cologne→Interlaken</span></label>
               <label class="ck"><input type="checkbox"><span>Lake Thun cruise</span></label>
             </td>
           </tr>
@@ -812,7 +1156,7 @@
               <label class="ck"><input type="checkbox"><span>Trümmelbach Falls</span></label>
             </td>
           </tr>
-
+ 
           <tr class="shdr"><td colspan="6">Paris</td></tr>
           <tr>
             <td><span class="ctag p">Paris</span><div class="dl">Sep 1 — Mon</div><div class="ds">Day 6 · Travel day</div></td>
@@ -824,7 +1168,7 @@
             </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel (3 nights)</span></label>
-              <label class="ck"><input type="checkbox"><span>Train Interlaken→Paris</span></label>
+              <label class="ck"><input type="checkbox" checked><span>Train Interlaken→Paris</span></label>
               <label class="ck"><input type="checkbox"><span>Eiffel Tower</span></label>
             </td>
           </tr>
@@ -854,7 +1198,7 @@
               <label class="ck"><input type="checkbox"><span>Versailles ticket</span></label>
             </td>
           </tr>
-
+ 
           <tr class="shdr"><td colspan="6">Brussels</td></tr>
           <tr>
             <td><span class="ctag b">Brussels</span><div class="dl">Sep 4 — Thu</div><div class="ds">Day 9 · Travel day</div></td>
@@ -866,10 +1210,10 @@
             </td>
             <td>
               <label class="ck"><input type="checkbox"><span>Hotel</span></label>
-              <label class="ck"><input type="checkbox"><span>Train Paris→Brussels</span></label>
+              <label class="ck"><input type="checkbox" checked><span>Train Paris→Brussels</span></label>
             </td>
           </tr>
-
+ 
           <tr class="shdr"><td colspan="6">Amsterdam (return)</td></tr>
           <tr>
             <td><span class="ctag a">Amsterdam</span><div class="dl">Sep 5 — Fri</div><div class="ds">Day 10 · Return</div></td>
@@ -899,7 +1243,7 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
   function toggleBooking() {
     var overlay = document.getElementById('booking-overlay');
@@ -923,18 +1267,18 @@
     cb.addEventListener('change', updateProgress);
   });
 </script>
-
-
+ 
+ 
 <!-- ═══════════════════════════════════════════════
      SWITZERLAND JUNGFRAU DETAILED ITINERARY BUTTON
 ════════════════════════════════════════════════ -->
-
+ 
 <!-- FAB for Switzerland -->
 <button class="fab fab-swiss" onclick="toggleSwiss()" id="swiss-btn">
   <span>🏔</span>
   <span id="swiss-label">Swiss Alps Detail</span>
 </button>
-
+ 
 <!-- Switzerland Overlay -->
 <div id="swiss-overlay" class="booking-overlay" aria-hidden="true">
   <div class="booking-panel swiss-panel">
@@ -946,7 +1290,7 @@
       </div>
       <button class="close-btn" onclick="toggleSwiss()">✕</button>
     </div>
-
+ 
     <!-- Swiss content injected below -->
     <div class="swiss-scroll">
       <div class="swiss-inner">
@@ -1015,16 +1359,16 @@ body { font-family: var(--font-sans); }
 .pass-row .px { color: #A32D2D; }
 .pass-badge { display: inline-block; font-size: 10px; padding: 2px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 99px; margin-bottom: 8px; }
 </style>
-
+ 
 <h2 class="sr-only">Switzerland Jungfrau Region Travel Planner — 2.5 day itinerary with Eurail pass guide, pricing, and recommendations for Aug 29 to Sep 1</h2>
-
+ 
 <div class="tabs">
   <button class="tab active" onclick="showTab('itinerary')">Itinerary</button>
   <button class="tab" onclick="showTab('coverage')">Eurail coverage</button>
   <button class="tab" onclick="showTab('prices')">Prices & savings</button>
   <button class="tab" onclick="showTab('strategy')">Best strategy</button>
 </div>
-
+ 
 <div id="itinerary" class="panel active">
   <div class="day-header">
     <div>
@@ -1059,7 +1403,7 @@ body { font-family: var(--font-sans); }
       <div class="tl-note">Rösti or fondue at a mid-range restaurant · CHF 20–35 budget</div>
     </div>
   </div>
-
+ 
   <div class="day-header">
     <div>
       <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Day 2 — Aug 30</span></div>
@@ -1099,7 +1443,7 @@ body { font-family: var(--font-sans); }
       <div class="tl-note">Relax, dinner, rest</div>
     </div>
   </div>
-
+ 
   <div class="day-header">
     <div>
       <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Day 3 — Aug 31</span></div>
@@ -1138,7 +1482,7 @@ body { font-family: var(--font-sans); }
       <div class="tl-note">Cable car → Grütschalp → train → Interlaken (scenic route)</div>
     </div>
   </div>
-
+ 
   <div class="day-header">
     <div>
       <div style="display:flex;align-items:center;gap:8px;"><span class="day-badge">Sep 1 AM</span></div>
@@ -1155,7 +1499,7 @@ body { font-family: var(--font-sans); }
     </div>
   </div>
 </div>
-
+ 
 <div id="coverage" class="panel">
   <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">Your 7-day Eurail Global Pass significantly covers the Jungfrau region — much better than many travelers expect.</p>
   <div class="coverage-grid">
@@ -1191,7 +1535,7 @@ body { font-family: var(--font-sans); }
     </ul>
   </div>
 </div>
-
+ 
 <div id="prices" class="panel">
   <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">All prices in CHF. Peak season (May–Oct). No travel day consumed for mountain discounts.</p>
   <table class="price-table">
@@ -1236,7 +1580,7 @@ body { font-family: var(--font-sans); }
       </tr>
     </tbody>
   </table>
-
+ 
   <div class="section-title">Estimated daily costs (mid-range)</div>
   <div class="budget-grid">
     <div class="budget-card">
@@ -1255,7 +1599,7 @@ body { font-family: var(--font-sans); }
       <div class="sub">Incl. Jungfraujoch + Schilthorn</div>
     </div>
   </div>
-
+ 
   <div class="section-title">Money-saving tips</div>
   <div class="rec-box">
     <ul>
@@ -1267,10 +1611,10 @@ body { font-family: var(--font-sans); }
     </ul>
   </div>
 </div>
-
+ 
 <div id="strategy" class="panel">
   <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">Should you buy the Swiss Travel Pass, Jungfrau Travel Pass, or just use your Eurail pass?</p>
-
+ 
   <div class="pass-compare">
     <div class="pass-card recommended">
       <span class="pass-badge">Recommended for you</span>
@@ -1294,7 +1638,7 @@ body { font-family: var(--font-sans); }
       <div class="pass-row"><span class="px">✗</span> Extra savings vs Eurail: ~CHF 30–40 total</div>
     </div>
   </div>
-
+ 
   <div class="pass-compare">
     <div class="pass-card">
       <div class="pass-name">Jungfrau Travel Pass (3-day)</div>
@@ -1314,7 +1658,7 @@ body { font-family: var(--font-sans); }
       <div class="pass-row"><span class="px">✗</span> Savings justify it only for 7+ days in Switzerland</div>
     </div>
   </div>
-
+ 
   <div class="rec-box">
     <div class="rec-title">Verdict: Stick with Eurail only. Here's why.</div>
     <ul>
@@ -1326,7 +1670,7 @@ body { font-family: var(--font-sans); }
     </ul>
   </div>
 </div>
-
+ 
 <script>
 function showTab(id) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1335,12 +1679,12 @@ function showTab(id) {
   event.target.classList.add('active');
 }
 </script>
-
+ 
       </div>
     </div>
   </div>
 </div>
-
+ 
 <style>
   /* Position Swiss FAB above the booking tracker FAB */
   .fab-swiss {
@@ -1348,7 +1692,7 @@ function showTab(id) {
     background: #1a4a32;
   }
   .fab-swiss:hover { background: #0f3322 !important; }
-
+ 
   .swiss-panel {
     max-width: 820px;
   }
@@ -1372,7 +1716,7 @@ function showTab(id) {
     --border-radius-md: 4px;
   }
 </style>
-
+ 
 <script>
   function toggleSwiss() {
     var overlay = document.getElementById('swiss-overlay');
@@ -1385,6 +1729,9 @@ function showTab(id) {
     if (e.target === this) toggleSwiss();
   });
 </script>
-
+ 
 </body>
 </html>
+ 
+
+
